@@ -18,6 +18,12 @@
         /* Contrôles (Barre du haut) */
         .controls { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; gap: 15px; align-items: center; margin-bottom: 20px; }
         .controls input[type="text"], .controls input[type="number"] { padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        
+        /* Style pour la checkbox */
+        .checkbox-container { display: flex; align-items: center; gap: 5px; cursor: pointer; user-select: none; border: 1px solid #ddd; padding: 8px; border-radius: 4px; background: #fafafa; }
+        .checkbox-container:hover { background: #eee; }
+        .checkbox-container input { cursor: pointer; }
+
         .btn { padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; color: white; font-weight: bold; transition: background 0.3s; }
         .btn-primary { background-color: var(--primary-color); }
         .btn-success { background-color: #28a745; }
@@ -61,6 +67,11 @@
     <div class="controls">
         <input type="text" id="search-input" placeholder="Rechercher un mot clé..." onkeyup="filterQuestions()">
         
+        <label class="checkbox-container">
+            <input type="checkbox" id="filter-img-q" onchange="filterQuestions()">
+            <span>🖼️ Avec Image (Quest.)</span>
+        </label>
+
         <div style="display: flex; align-items: center; gap: 5px;">
             <input type="number" id="random-n" placeholder="N" style="width: 50px;" value="5">
             <button class="btn btn-primary" onclick="showRandom()">Aléatoire</button>
@@ -146,12 +157,9 @@
                 });
         });
 
-        // Fonction pour nettoyer les spécificités LaTeX (~ pour espace insécable)
-        // avant que Markdown ne l'interprète comme barré (strikethrough)
+        // Nettoyage LaTeX ~ -> &nbsp;
         function cleanForMarkdown(text) {
             if (!text) return '';
-            // Remplace le tilde ~ par un espace insécable HTML (&nbsp;)
-            // Le flag /g assure que tous les tildes sont remplacés
             return text.replace(/~/g, '&nbsp;');
         }
 
@@ -160,19 +168,21 @@
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
 
+            if(data.length === 0) {
+                container.innerHTML = '<p>Aucune question trouvée.</p>';
+                return;
+            }
+
             data.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'card';
                 
-                // Traitement des images
                 const imgQ = item.image_question ? `<img src="images/${item.image_question}" class="question-img" alt="Image Question" onerror="this.style.display='none'">` : '';
                 const imgR = item.image_reponse ? `<img src="images/${item.image_reponse}" class="answer-img" alt="Image Réponse" onerror="this.style.display='none'">` : '';
 
-                // 1. Nettoyage du texte (conversion ~ -> &nbsp;)
                 const rawQ = cleanForMarkdown(item.question_text);
                 const rawR = cleanForMarkdown(item.reponse_text);
 
-                // 2. Conversion Markdown -> HTML
                 const questionHtml = marked.parse(rawQ);
                 const reponseHtml = marked.parse(rawR);
 
@@ -202,24 +212,36 @@
                 container.appendChild(card);
             });
             
-            // Rendu des maths (MathJax)
             if (window.MathJax) {
                 MathJax.typesetPromise();
             }
         }
 
-        // --- Logique d'affichage ---
-
+        // --- Logique de filtrage (MISE À JOUR) ---
         function filterQuestions() {
             const query = document.getElementById('search-input').value.toLowerCase();
-            currentDisplayData = allData.filter(q => 
-                (q.question_text && q.question_text.toLowerCase().includes(query)) || 
-                (q.reponse_text && q.reponse_text.toLowerCase().includes(query))
-            );
+            const onlyImgQ = document.getElementById('filter-img-q').checked;
+
+            currentDisplayData = allData.filter(q => {
+                // 1. Filtre par texte
+                const matchText = (q.question_text && q.question_text.toLowerCase().includes(query)) || 
+                                  (q.reponse_text && q.reponse_text.toLowerCase().includes(query));
+                
+                // 2. Filtre par image (si coché)
+                // On vérifie si image_question existe et n'est pas vide
+                const matchImg = onlyImgQ ? (q.image_question && q.image_question.trim() !== '') : true;
+
+                return matchText && matchImg;
+            });
+
             renderQuestions(currentDisplayData);
         }
 
         function showRandom() {
+            // Réinitialise les filtres pour l'aléatoire
+            document.getElementById('search-input').value = '';
+            document.getElementById('filter-img-q').checked = false;
+
             const n = parseInt(document.getElementById('random-n').value) || 5;
             const shuffled = [...allData].sort(() => 0.5 - Math.random());
             currentDisplayData = shuffled.slice(0, n);
@@ -228,6 +250,7 @@
 
         function showAll() {
             document.getElementById('search-input').value = '';
+            document.getElementById('filter-img-q').checked = false;
             currentDisplayData = allData;
             renderQuestions(allData);
         }
@@ -282,7 +305,8 @@
         function deleteQuestion(id) {
             if(confirm("Êtes-vous sûr de vouloir supprimer cette question ?")) {
                 allData = allData.filter(q => q.id_question !== id);
-                renderQuestions(currentDisplayData.filter(q => q.id_question !== id));
+                // On relance le filtre pour garder la vue cohérente
+                filterQuestions();
             }
         }
 
@@ -325,9 +349,7 @@
             }
             
             closeEditor();
-            // Re-filtrer pour mettre à jour l'affichage courant
-            if(document.getElementById('search-input').value) filterQuestions();
-            else renderQuestions(currentDisplayData); 
+            filterQuestions();
         }
 
         function downloadJSON() {
