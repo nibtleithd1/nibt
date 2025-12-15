@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestionnaire Q&R NIBT</title>
+    
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // Autorise $...$ pour les formules en ligne
+                displayMath: [['$$', '$$'], ['\\[', '\\]']], // Autorise $$...$$ pour les blocs
+                processEscapes: true
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            }
+        };
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         :root {
             --primary-color: #0056b3;
@@ -56,29 +71,14 @@
         .answer-section.visible { display: block; }
 
         /* --- STYLES DES ARTICLES NIBT --- */
-        
-        /* 1. Dans l'en-tête de la question (contrôlé par la checkbox) */
         .article-ref-header {
-            color: #0056b3;
-            margin-left: 8px;
-            font-weight: normal;
-            display: none; /* Caché par défaut */
+            color: #0056b3; margin-left: 8px; font-weight: normal; display: none;
         }
-        /* Affiché seulement si le conteneur a la classe 'show-header-ref' */
-        .questions-container.show-header-ref .article-ref-header {
-            display: inline;
-        }
+        .questions-container.show-header-ref .article-ref-header { display: inline; }
 
-        /* 2. Dans le pied de la réponse (Toujours visible) */
         .article-ref-footer {
-            margin-top: 15px;
-            padding-top: 5px;
-            border-top: 1px solid #b6d4fe;
-            font-size: 0.95em;
-            color: #084298;
-            font-weight: bold;
-            text-align: right;
-            display: block; /* Toujours visible */
+            margin-top: 15px; padding-top: 5px; border-top: 1px solid #b6d4fe;
+            font-size: 0.95em; color: #084298; font-weight: bold; text-align: right; display: block;
         }
         
         .card-actions { margin-top: auto; display: flex; gap: 10px; padding-top: 10px; }
@@ -177,6 +177,7 @@
         let currentDisplayData = [];
         let showAllAnswersState = false;
 
+        // Configuration Marked.js
         marked.setOptions({ breaks: true });
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -187,7 +188,7 @@
                     currentDisplayData = data;
                     updateStats();
                     renderQuestions(allData);
-                    toggleHeaderArticles(); // Appliquer l'état initial
+                    toggleHeaderArticles();
                 })
                 .catch(err => {
                     console.error("Erreur", err);
@@ -195,7 +196,7 @@
                 });
         });
 
-        // --- Toggle CSS pour l'entête ---
+        // Toggle CSS
         function toggleHeaderArticles() {
             const isChecked = document.getElementById('show-header-check').checked;
             const container = document.getElementById('questions-container');
@@ -219,7 +220,7 @@
         function closeZoom() { document.getElementById("zoom-modal").style.display = "none"; }
         document.addEventListener('keydown', e => { if(e.key === "Escape") closeZoom(); });
 
-        // --- Rendu ---
+        // Rendu
         function renderQuestions(data) {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
@@ -236,16 +237,13 @@
                 const imgQ = item.image_question ? `<img src="images/${item.image_question}" class="question-img" onclick="openZoom(this.src)" onerror="this.style.display='none'">` : '';
                 const imgR = item.image_reponse ? `<img src="images/${item.image_reponse}" class="answer-img" onclick="openZoom(this.src)" onerror="this.style.display='none'">` : '';
 
+                // Conversion Markdown
                 const qHtml = marked.parse(cleanForMarkdown(item.question_text));
                 const rHtml = marked.parse(cleanForMarkdown(item.reponse_text));
 
-                // Création des chaînes HTML pour l'article (Header et Footer)
+                // Construction Articles HTML
                 const articleText = item.Numero_Article_NIBT ? `Art. ${item.Numero_Article_NIBT}` : '';
-                
-                // Header: span avec classe spécifique (masqué/affiché par CSS)
                 const headerRefHtml = articleText ? `<span class="article-ref-header">- ${articleText}</span>` : '';
-                
-                // Footer: div toujours visible
                 const footerRefHtml = articleText ? `<div class="article-ref-footer">📚 ${articleText}</div>` : '';
 
                 card.innerHTML = `
@@ -272,11 +270,14 @@
                 container.appendChild(card);
             });
             
-            if (window.MathJax) MathJax.typesetPromise();
+            // Déclenche le rendu MathJax pour les nouvelles formules
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
             updateStats();
         }
 
-        // --- Filtres ---
+        // Filtres
         function filterQuestions() {
             const query = document.getElementById('search-input').value.toLowerCase();
             const searchInQ = document.getElementById('search-in-q').checked;
@@ -329,7 +330,7 @@
             });
         }
 
-        // --- CRUD ---
+        // CRUD
         function openEditor(id = null) {
             const modal = document.getElementById('editor-modal');
             const title = document.getElementById('modal-title');
