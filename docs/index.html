@@ -15,94 +15,80 @@
         }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); margin: 0; padding: 20px; color: #333; }
         
-        /* Contrôles (Barre du haut) */
-        .controls { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; gap: 15px; align-items: center; margin-bottom: 20px; }
-        .controls input[type="text"], .controls input[type="number"] { padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        /* --- Contrôles (Haut de page) --- */
+        .controls-container {
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+            margin-bottom: 20px;
+        }
+
+        .top-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .search-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        input[type="text"], input[type="number"] { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
         
         /* Checkbox style */
-        .checkbox-container { display: flex; align-items: center; gap: 5px; cursor: pointer; user-select: none; border: 1px solid #ddd; padding: 8px; border-radius: 4px; background: #fafafa; }
-        .checkbox-container:hover { background: #eee; }
+        .checkbox-group { display: flex; gap: 10px; }
+        .checkbox-container { display: flex; align-items: center; gap: 5px; cursor: pointer; user-select: none; font-size: 0.9em; }
         .checkbox-container input { cursor: pointer; }
 
-        .btn { padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; color: white; font-weight: bold; transition: background 0.3s; }
+        .stats-badge {
+            background-color: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #495057;
+        }
+
+        .btn { padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer; color: white; font-weight: bold; transition: background 0.3s; font-size: 0.9em; }
         .btn-primary { background-color: var(--primary-color); }
         .btn-success { background-color: #28a745; }
         .btn-danger { background-color: #dc3545; }
         .btn-warning { background-color: #ffc107; color: black; }
         .btn:hover { opacity: 0.9; }
 
-        /* Grille des questions */
+        /* --- Grille des questions --- */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         .card { background: var(--card-bg); padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-direction: column; position: relative; }
         
         .card-header { font-weight: bold; margin-bottom: 10px; display: flex; justify-content: space-between; color: #555; font-size: 0.9em; }
         .question-content { margin-bottom: 15px; font-size: 1.1em; line-height: 1.5; }
         
-        /* Styles des images miniatures */
+        /* Images */
         .question-img, .answer-img { 
-            max-width: 100%; 
-            height: auto; 
-            margin-top: 10px; 
-            border-radius: 4px; 
-            border: 1px solid #eee; 
-            cursor: zoom-in; /* Curseur loupe */
-            transition: opacity 0.2s;
+            max-width: 100%; height: auto; margin-top: 10px; border-radius: 4px; border: 1px solid #eee; 
+            cursor: zoom-in; transition: opacity 0.2s;
         }
-        .question-img:hover, .answer-img:hover {
-            opacity: 0.8;
-            box-shadow: 0 0 5px rgba(0,0,0,0.2);
-        }
+        .question-img:hover, .answer-img:hover { opacity: 0.8; box-shadow: 0 0 5px rgba(0,0,0,0.2); }
         
         .answer-section { margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; display: none; background-color: #eef9ff; padding: 10px; border-radius: 5px; }
         .answer-section.visible { display: block; }
         
         .card-actions { margin-top: auto; display: flex; gap: 10px; padding-top: 10px; }
         
-        /* --- Styles du ZOOM (Lightbox) --- */
-        #zoom-modal {
-            display: none; /* Caché par défaut */
-            position: fixed; 
-            z-index: 2000; /* Au-dessus de tout */
-            padding-top: 50px; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgb(0,0,0); 
-            background-color: rgba(0,0,0,0.9); /* Fond noir transparent */
-        }
-        
-        .zoom-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 90vh;
-            border-radius: 5px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.2);
-            animation: zoomAnim 0.3s;
-        }
-
-        @keyframes zoomAnim {
-            from {transform:scale(0)} 
-            to {transform:scale(1)}
-        }
-
-        .close-zoom {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .close-zoom:hover, .close-zoom:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
+        /* --- Lightbox ZOOM --- */
+        #zoom-modal { display: none; position: fixed; z-index: 2000; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); }
+        .zoom-content { margin: auto; display: block; max-width: 90%; max-height: 90vh; animation: zoomAnim 0.3s; border-radius: 4px; }
+        @keyframes zoomAnim { from {transform:scale(0)} to {transform:scale(1)} }
+        .close-zoom { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
 
         /* --- Mode Édition --- */
         #editor-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; overflow-y: auto; }
@@ -111,10 +97,9 @@
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
         .form-group input, .form-group textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
-        
-        /* Impression */
+
         @media print {
-            .controls, .card-actions, .btn { display: none !important; }
+            .controls-container, .card-actions, .btn { display: none !important; }
             .answer-section { display: block !important; border-top: 1px solid #000; }
             .card { break-inside: avoid; border: 1px solid #000; box-shadow: none; margin-bottom: 20px; }
             body { background-color: white; }
@@ -123,26 +108,45 @@
 </head>
 <body>
 
-    <div class="controls">
-        <input type="text" id="search-input" placeholder="Rechercher un mot clé..." onkeyup="filterQuestions()">
-        
-        <label class="checkbox-container">
-            <input type="checkbox" id="filter-img-q" onchange="filterQuestions()">
-            <span>🖼️ Avec Image (Quest.)</span>
-        </label>
+    <div class="controls-container">
+        <div class="top-bar">
+            <div class="stats-badge" id="stats-display">Chargement...</div>
+            
+            <div style="display: flex; gap: 10px;">
+                <button class="btn btn-primary" onclick="showAll()">Tout Afficher</button>
+                <button class="btn btn-warning" onclick="toggleAllAnswers()">👁️ Tout Révéler</button>
+                <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimer</button>
+            </div>
 
-        <div style="display: flex; align-items: center; gap: 5px;">
-            <input type="number" id="random-n" placeholder="N" style="width: 50px;" value="5">
-            <button class="btn btn-primary" onclick="showRandom()">Aléatoire</button>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn btn-success" onclick="openEditor()">+ Ajouter</button>
+                <button class="btn btn-danger" onclick="downloadJSON()">💾 Télécharger JSON Complet</button>
+            </div>
         </div>
-        
-        <button class="btn btn-primary" onclick="showAll()">Tout Afficher</button>
-        <button class="btn btn-warning" onclick="toggleAllAnswers()">Tout Révéler/Cacher</button>
-        <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimer</button>
-        
-        <div style="margin-left: auto; display: flex; gap: 10px;">
-            <button class="btn btn-success" onclick="openEditor()">+ Nouvelle Question</button>
-            <button class="btn btn-danger" onclick="downloadJSON()">💾 Sauvegarder (JSON)</button>
+
+        <div class="search-filters">
+            <input type="text" id="search-input" placeholder="Rechercher..." onkeyup="filterQuestions()" style="width: 200px;">
+            
+            <div class="checkbox-group">
+                <label class="checkbox-container" title="Chercher dans le texte des questions">
+                    <input type="checkbox" id="search-in-q" checked onchange="filterQuestions()"> Questions
+                </label>
+                <label class="checkbox-container" title="Chercher dans le texte des réponses">
+                    <input type="checkbox" id="search-in-r" checked onchange="filterQuestions()"> Réponses
+                </label>
+            </div>
+
+            <div style="border-left: 1px solid #ddd; height: 20px; margin: 0 5px;"></div>
+
+            <label class="checkbox-container">
+                <input type="checkbox" id="filter-img-q" onchange="filterQuestions()">
+                <span>🖼️ Avec Image (Q)</span>
+            </label>
+
+            <div style="margin-left: auto; display: flex; align-items: center; gap: 5px;">
+                <input type="number" id="random-n" placeholder="N" style="width: 50px;" value="5">
+                <button class="btn btn-primary" onclick="showRandom()">🎲 Aléatoire</button>
+            </div>
         </div>
     </div>
 
@@ -160,21 +164,21 @@
             <form id="question-form">
                 <input type="hidden" id="edit-id">
                 <div class="form-group">
-                    <label>Question (Markdown accepté)</label>
-                    <textarea id="edit-question" rows="4" required></textarea>
+                    <label>Question (Markdown)</label>
+                    <textarea id="edit-question" rows="4"></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Image Question (Nom du fichier dans /images)</label>
-                    <input type="text" id="edit-img-q" placeholder="exemple.jpg">
+                    <label>Image Question (Nom fichier)</label>
+                    <input type="text" id="edit-img-q">
                     <input type="file" onchange="previewFile('edit-img-q', this)" accept="image/*" style="margin-top:5px;">
                 </div>
                 <div class="form-group">
-                    <label>Réponse (Markdown accepté)</label>
-                    <textarea id="edit-reponse" rows="4" required></textarea>
+                    <label>Réponse (Markdown)</label>
+                    <textarea id="edit-reponse" rows="4"></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Image Réponse</label>
-                    <input type="text" id="edit-img-r" placeholder="exemple_rep.jpg">
+                    <label>Image Réponse (Nom fichier)</label>
+                    <input type="text" id="edit-img-r">
                     <input type="file" onchange="previewFile('edit-img-r', this)" accept="image/*" style="margin-top:5px;">
                 </div>
                 <div class="form-group">
@@ -203,44 +207,45 @@
                 .then(data => {
                     allData = data;
                     currentDisplayData = data;
+                    updateStats();
                     renderQuestions(allData);
                 })
                 .catch(err => {
                     console.error("Erreur chargement JSON", err);
-                    document.getElementById('questions-container').innerHTML = "<p>Impossible de charger le fichier JSON. Assurez-vous qu'il est présent.</p>";
+                    document.getElementById('stats-display').textContent = "Erreur chargement fichier";
+                    document.getElementById('questions-container').innerHTML = "<p>Impossible de charger 'questions_reponses_nibt.json'. Vérifiez qu'il est présent.</p>";
                 });
         });
+
+        function updateStats() {
+            const total = allData.length;
+            const displayed = currentDisplayData.length;
+            document.getElementById('stats-display').textContent = `Total Base: ${total} | Affichées: ${displayed}`;
+        }
 
         function cleanForMarkdown(text) {
             if (!text) return '';
             return text.replace(/~/g, '&nbsp;');
         }
 
-        // --- GESTION DU ZOOM ---
+        // --- ZOOM ---
         function openZoom(src) {
             const modal = document.getElementById("zoom-modal");
-            const modalImg = document.getElementById("img-in-zoom");
+            document.getElementById("img-in-zoom").src = src;
             modal.style.display = "block";
-            modalImg.src = src;
         }
-
         function closeZoom() {
             document.getElementById("zoom-modal").style.display = "none";
         }
-        
-        // Fermer le zoom avec la touche Echap
-        document.addEventListener('keydown', function(event) {
-            if (event.key === "Escape") {
-                closeZoom();
-            }
-        });
+        document.addEventListener('keydown', e => { if(e.key === "Escape") closeZoom(); });
 
+        // --- RENDU ---
         function renderQuestions(data) {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
 
             if(data.length === 0) {
-                container.innerHTML = '<p>Aucune question trouvée.</p>';
+                container.innerHTML = '<p style="grid-column: 1/-1; text-align:center;">Aucun résultat.</p>';
                 return;
             }
 
@@ -248,18 +253,11 @@
                 const card = document.createElement('div');
                 card.className = 'card';
                 
-                // Ajout de l'événement onclick="openZoom(...)" sur les images
-                const imgQ = item.image_question ? 
-                    `<img src="images/${item.image_question}" class="question-img" alt="Image Question" onclick="openZoom(this.src)" onerror="this.style.display='none'">` : '';
-                
-                const imgR = item.image_reponse ? 
-                    `<img src="images/${item.image_reponse}" class="answer-img" alt="Image Réponse" onclick="openZoom(this.src)" onerror="this.style.display='none'">` : '';
+                const imgQ = item.image_question ? `<img src="images/${item.image_question}" class="question-img" onclick="openZoom(this.src)" onerror="this.style.display='none'">` : '';
+                const imgR = item.image_reponse ? `<img src="images/${item.image_reponse}" class="answer-img" onclick="openZoom(this.src)" onerror="this.style.display='none'">` : '';
 
-                const rawQ = cleanForMarkdown(item.question_text);
-                const rawR = cleanForMarkdown(item.reponse_text);
-
-                const questionHtml = marked.parse(rawQ);
-                const reponseHtml = marked.parse(rawR);
+                const qHtml = marked.parse(cleanForMarkdown(item.question_text));
+                const rHtml = marked.parse(cleanForMarkdown(item.reponse_text));
 
                 card.innerHTML = `
                     <div class="card-header">
@@ -267,41 +265,54 @@
                         <span>${item.Nb_Pts_Reponse || 0} pts</span>
                     </div>
                     <div class="question-content">
-                        ${questionHtml}
+                        ${qHtml}
                         ${imgQ}
                     </div>
-                    
                     <button class="btn btn-primary" onclick="toggleAnswer(this)" style="width:100%;">Voir Réponse</button>
-                    
                     <div class="answer-section ${showAllAnswersState ? 'visible' : ''}">
                         <strong>Réponse :</strong>
-                        <div class="question-content">${reponseHtml}</div>
+                        <div class="question-content">${rHtml}</div>
                         ${imgR}
                     </div>
-
                     <div class="card-actions">
-                        <button class="btn btn-warning" onclick="editQuestion(${item.id_question})">✏️ Éditer</button>
+                        <button class="btn btn-warning" onclick="editQuestion(${item.id_question})">✏️</button>
                         <button class="btn btn-danger" onclick="deleteQuestion(${item.id_question})">🗑️</button>
                     </div>
                 `;
                 container.appendChild(card);
             });
             
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            }
+            if (window.MathJax) MathJax.typesetPromise();
+            updateStats();
         }
 
+        // --- FILTRES ---
         function filterQuestions() {
             const query = document.getElementById('search-input').value.toLowerCase();
+            const searchInQ = document.getElementById('search-in-q').checked;
+            const searchInR = document.getElementById('search-in-r').checked;
             const onlyImgQ = document.getElementById('filter-img-q').checked;
 
             currentDisplayData = allData.filter(q => {
-                const matchText = (q.question_text && q.question_text.toLowerCase().includes(query)) || 
-                                  (q.reponse_text && q.reponse_text.toLowerCase().includes(query));
+                let matchText = false;
+                
+                // Si la recherche est vide, tout correspond par défaut pour le texte
+                if (!query) {
+                    matchText = true;
+                } else {
+                    const qText = q.question_text ? q.question_text.toLowerCase() : "";
+                    const rText = q.reponse_text ? q.reponse_text.toLowerCase() : "";
+                    
+                    if (searchInQ && qText.includes(query)) matchText = true;
+                    if (searchInR && rText.includes(query)) matchText = true;
+                }
+
+                // Filtre Image
                 const matchImg = onlyImgQ ? (q.image_question && q.image_question.trim() !== '') : true;
+
                 return matchText && matchImg;
             });
+
             renderQuestions(currentDisplayData);
         }
 
@@ -309,6 +320,7 @@
             document.getElementById('search-input').value = '';
             document.getElementById('filter-img-q').checked = false;
             const n = parseInt(document.getElementById('random-n').value) || 5;
+            // On mélange une copie
             const shuffled = [...allData].sort(() => 0.5 - Math.random());
             currentDisplayData = shuffled.slice(0, n);
             renderQuestions(currentDisplayData);
@@ -336,14 +348,14 @@
             });
         }
 
-        // --- CRUD Logic ---
+        // --- CRUD ---
         function openEditor(id = null) {
             const modal = document.getElementById('editor-modal');
             const title = document.getElementById('modal-title');
             
             if (id) {
                 const item = allData.find(q => q.id_question === id);
-                title.textContent = "Éditer la question #" + id;
+                title.textContent = "Éditer #" + id;
                 document.getElementById('edit-id').value = id;
                 document.getElementById('edit-question').value = item.question_text;
                 document.getElementById('edit-img-q').value = item.image_question || '';
@@ -359,16 +371,11 @@
             modal.style.display = 'block';
         }
 
-        function closeEditor() {
-            document.getElementById('editor-modal').style.display = 'none';
-        }
-
-        function editQuestion(id) {
-            openEditor(id);
-        }
-
+        function closeEditor() { document.getElementById('editor-modal').style.display = 'none'; }
+        function editQuestion(id) { openEditor(id); }
+        
         function deleteQuestion(id) {
-            if(confirm("Êtes-vous sûr de vouloir supprimer cette question ?")) {
+            if(confirm("Supprimer la question #" + id + " ?")) {
                 allData = allData.filter(q => q.id_question !== id);
                 filterQuestions();
             }
@@ -378,7 +385,7 @@
             if (fileInput.files && fileInput.files[0]) {
                 const file = fileInput.files[0];
                 document.getElementById(inputId).value = file.name;
-                alert("N'oubliez pas de copier le fichier '" + file.name + "' dans le dossier 'images' de votre projet !");
+                alert("Note : Copiez manuellement '" + file.name + "' dans le dossier 'images/' avant le push GitHub.");
             }
         }
 
@@ -394,24 +401,12 @@
             if (id) {
                 const index = allData.findIndex(q => q.id_question == id);
                 if (index !== -1) {
-                    allData[index] = { 
-                        ...allData[index], 
-                        question_text: qText, image_question: qImg, 
-                        reponse_text: rText, image_reponse: rImg, 
-                        Numero_Article_NIBT: art, Nb_Pts_Reponse: pts 
-                    };
+                    allData[index] = { ...allData[index], question_text: qText, image_question: qImg, reponse_text: rText, image_reponse: rImg, Numero_Article_NIBT: art, Nb_Pts_Reponse: pts };
                 }
             } else {
                 const newId = allData.length > 0 ? Math.max(...allData.map(q => q.id_question)) + 1 : 1;
-                const newItem = {
-                    id_question: newId,
-                    question_text: qText, image_question: qImg,
-                    reponse_text: rText, image_reponse: rImg, 
-                    Numero_Article_NIBT: art, Nb_Pts_Reponse: pts
-                };
-                allData.push(newItem);
+                allData.push({ id_question: newId, question_text: qText, image_question: qImg, reponse_text: rText, image_reponse: rImg, Numero_Article_NIBT: art, Nb_Pts_Reponse: pts });
             }
-            
             closeEditor();
             filterQuestions();
         }
@@ -427,15 +422,11 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            alert("Sauvegarde téléchargée ! Remplacer le fichier dans votre dépôt GitHub.");
+            alert("Fichier JSON prêt. Remplacez l'original dans votre dossier GitHub.");
         }
 
-        // Fermer les modales si on clique dehors
-        window.onclick = function(event) {
-            const editorModal = document.getElementById('editor-modal');
-            if (event.target == editorModal) {
-                closeEditor();
-            }
+        window.onclick = function(e) {
+            if (e.target == document.getElementById('editor-modal')) closeEditor();
         }
     </script>
 </body>
