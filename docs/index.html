@@ -30,7 +30,7 @@
         .card { background: var(--card-bg); padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-direction: column; position: relative; }
         
         .card-header { font-weight: bold; margin-bottom: 10px; display: flex; justify-content: space-between; color: #555; font-size: 0.9em; }
-        .question-content { margin-bottom: 15px; font-size: 1.1em; }
+        .question-content { margin-bottom: 15px; font-size: 1.1em; line-height: 1.5; }
         .question-img, .answer-img { max-width: 100%; height: auto; margin-top: 10px; border-radius: 4px; border: 1px solid #eee; }
         
         .answer-section { margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; display: none; background-color: #eef9ff; padding: 10px; border-radius: 5px; }
@@ -92,7 +92,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>Image Question (Nom du fichier dans /images ou URL)</label>
+                    <label>Image Question (Nom du fichier dans /images)</label>
                     <input type="text" id="edit-img-q" placeholder="exemple.jpg">
                     <input type="file" onchange="previewFile('edit-img-q', this)" accept="image/*" style="margin-top:5px;">
                 </div>
@@ -128,7 +128,7 @@
         let currentDisplayData = [];
         let showAllAnswersState = false;
 
-        // Configuration de Marked.js pour gérer les sauts de ligne
+        // Configuration de Marked.js
         marked.setOptions({ breaks: true });
 
         // Chargement des données au démarrage
@@ -146,7 +146,17 @@
                 });
         });
 
-function renderQuestions(data) {
+        // Fonction pour nettoyer les spécificités LaTeX (~ pour espace insécable)
+        // avant que Markdown ne l'interprète comme barré (strikethrough)
+        function cleanForMarkdown(text) {
+            if (!text) return '';
+            // Remplace le tilde ~ par un espace insécable HTML (&nbsp;)
+            // Le flag /g assure que tous les tildes sont remplacés
+            return text.replace(/~/g, '&nbsp;');
+        }
+
+        // Fonction d'affichage principale
+        function renderQuestions(data) {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
 
@@ -154,18 +164,17 @@ function renderQuestions(data) {
                 const card = document.createElement('div');
                 card.className = 'card';
                 
-                // Images
+                // Traitement des images
                 const imgQ = item.image_question ? `<img src="images/${item.image_question}" class="question-img" alt="Image Question" onerror="this.style.display='none'">` : '';
                 const imgR = item.image_reponse ? `<img src="images/${item.image_reponse}" class="answer-img" alt="Image Réponse" onerror="this.style.display='none'">` : '';
 
-                // --- CORRECTION DES CARACTÈRES SPÉCIAUX ---
-                // Remplacement global (/g) du tilde par &nbsp; pour l'espace insécable
-                let cleanQuestion = (item.question_text || '').replace(/~/g, "&nbsp;");
-                let cleanReponse = (item.reponse_text || '').replace(/~/g, "&nbsp;");
+                // 1. Nettoyage du texte (conversion ~ -> &nbsp;)
+                const rawQ = cleanForMarkdown(item.question_text);
+                const rawR = cleanForMarkdown(item.reponse_text);
 
-                // Conversion Markdown -> HTML
-                const questionHtml = marked.parse(cleanQuestion);
-                const reponseHtml = marked.parse(cleanReponse);
+                // 2. Conversion Markdown -> HTML
+                const questionHtml = marked.parse(rawQ);
+                const reponseHtml = marked.parse(rawR);
 
                 card.innerHTML = `
                     <div class="card-header">
@@ -181,7 +190,7 @@ function renderQuestions(data) {
                     
                     <div class="answer-section ${showAllAnswersState ? 'visible' : ''}">
                         <strong>Réponse :</strong>
-                        <div>${reponseHtml}</div>
+                        <div class="question-content">${reponseHtml}</div>
                         ${imgR}
                     </div>
 
@@ -193,11 +202,12 @@ function renderQuestions(data) {
                 container.appendChild(card);
             });
             
-            // Rendu des maths (MathJax) après l'injection HTML
+            // Rendu des maths (MathJax)
             if (window.MathJax) {
                 MathJax.typesetPromise();
             }
         }
+
         // --- Logique d'affichage ---
 
         function filterQuestions() {
@@ -276,13 +286,11 @@ function renderQuestions(data) {
             }
         }
 
-        // Gestion de l'input fichier pour récupérer juste le nom
-        // Note: Pour GitHub Pages, l'image doit être placée manuellement dans le dossier images/
         function previewFile(inputId, fileInput) {
             if (fileInput.files && fileInput.files[0]) {
                 const file = fileInput.files[0];
-                document.getElementById(inputId).value = file.name; // On garde juste le nom pour le JSON
-                alert("N'oubliez pas de copier le fichier '" + file.name + "' dans le dossier 'images' de votre projet avant de pousser sur GitHub !");
+                document.getElementById(inputId).value = file.name;
+                alert("N'oubliez pas de copier le fichier '" + file.name + "' dans le dossier 'images' de votre projet !");
             }
         }
 
@@ -296,7 +304,6 @@ function renderQuestions(data) {
             const pts = parseInt(document.getElementById('edit-points').value);
 
             if (id) {
-                // Update
                 const index = allData.findIndex(q => q.id_question == id);
                 if (index !== -1) {
                     allData[index] = { 
@@ -307,7 +314,6 @@ function renderQuestions(data) {
                     };
                 }
             } else {
-                // Create
                 const newId = allData.length > 0 ? Math.max(...allData.map(q => q.id_question)) + 1 : 1;
                 const newItem = {
                     id_question: newId,
@@ -319,8 +325,9 @@ function renderQuestions(data) {
             }
             
             closeEditor();
-            // Rafraîchir l'affichage
-            filterQuestions(); // Ou renderQuestions(allData)
+            // Re-filtrer pour mettre à jour l'affichage courant
+            if(document.getElementById('search-input').value) filterQuestions();
+            else renderQuestions(currentDisplayData); 
         }
 
         function downloadJSON() {
@@ -336,10 +343,9 @@ function renderQuestions(data) {
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
             
-            alert("Fichier JSON téléchargé ! Remplacez votre ancien fichier dans le dossier du projet, ajoutez les images si nécessaire, puis faites un commit/push sur GitHub.");
+            alert("Sauvegarde téléchargée ! Remplacer le fichier dans votre dépôt GitHub.");
         }
 
-        // Fermer la modale si on clique dehors
         window.onclick = function(event) {
             const modal = document.getElementById('editor-modal');
             if (event.target == modal) {
