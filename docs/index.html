@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire Q&R NIBT</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --bg-color: #f4f4f9;
+            --card-bg: #ffffff;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); margin: 0; padding: 20px; color: #333; }
+        
+        /* Contrôles (Barre du haut) */
+        .controls { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; gap: 15px; align-items: center; margin-bottom: 20px; }
+        .controls input[type="text"], .controls input[type="number"] { padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        .btn { padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; color: white; font-weight: bold; transition: background 0.3s; }
+        .btn-primary { background-color: var(--primary-color); }
+        .btn-success { background-color: #28a745; }
+        .btn-danger { background-color: #dc3545; }
+        .btn-warning { background-color: #ffc107; color: black; }
+        .btn:hover { opacity: 0.9; }
+
+        /* Grille des questions */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--card-bg); padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-direction: column; position: relative; }
+        
+        .card-header { font-weight: bold; margin-bottom: 10px; display: flex; justify-content: space-between; color: #555; font-size: 0.9em; }
+        .question-content { margin-bottom: 15px; font-size: 1.1em; }
+        .question-img, .answer-img { max-width: 100%; height: auto; margin-top: 10px; border-radius: 4px; border: 1px solid #eee; }
+        
+        .answer-section { margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; display: none; background-color: #eef9ff; padding: 10px; border-radius: 5px; }
+        .answer-section.visible { display: block; }
+        
+        .card-actions { margin-top: auto; display: flex; gap: 10px; padding-top: 10px; }
+        
+        /* Mode Édition */
+        #editor-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; overflow-y: auto; }
+        .modal-content { background: white; margin: 50px auto; padding: 30px; width: 90%; max-width: 600px; border-radius: 8px; position: relative; }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        .preview-img { max-width: 100px; max-height: 100px; display: block; margin-top: 5px; }
+
+        /* Impression */
+        @media print {
+            .controls, .card-actions, .btn { display: none !important; }
+            .answer-section { display: block !important; border-top: 1px solid #000; }
+            .card { break-inside: avoid; border: 1px solid #000; box-shadow: none; margin-bottom: 20px; }
+            body { background-color: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <input type="text" id="search-input" placeholder="Rechercher un mot clé..." onkeyup="filterQuestions()">
+        
+        <div style="display: flex; align-items: center; gap: 5px;">
+            <input type="number" id="random-n" placeholder="N" style="width: 50px;" value="5">
+            <button class="btn btn-primary" onclick="showRandom()">Aléatoire</button>
+        </div>
+        
+        <button class="btn btn-primary" onclick="showAll()">Tout Afficher</button>
+        <button class="btn btn-warning" onclick="toggleAllAnswers()">Tout Révéler/Cacher</button>
+        <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimer</button>
+        
+        <div style="margin-left: auto; display: flex; gap: 10px;">
+            <button class="btn btn-success" onclick="openEditor()">+ Nouvelle Question</button>
+            <button class="btn btn-danger" onclick="downloadJSON()">💾 Sauvegarder (JSON)</button>
+        </div>
+    </div>
+
+    <div id="questions-container" class="grid">
+        </div>
+
+    <div id="editor-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeEditor()">&times;</span>
+            <h2 id="modal-title">Éditer la question</h2>
+            <form id="question-form">
+                <input type="hidden" id="edit-id">
+                
+                <div class="form-group">
+                    <label>Question (Markdown accepté)</label>
+                    <textarea id="edit-question" rows="4" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Image Question (Nom du fichier dans /images ou URL)</label>
+                    <input type="text" id="edit-img-q" placeholder="exemple.jpg">
+                    <input type="file" onchange="previewFile('edit-img-q', this)" accept="image/*" style="margin-top:5px;">
+                </div>
+
+                <div class="form-group">
+                    <label>Réponse (Markdown accepté)</label>
+                    <textarea id="edit-reponse" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Image Réponse</label>
+                    <input type="text" id="edit-img-r" placeholder="exemple_rep.jpg">
+                    <input type="file" onchange="previewFile('edit-img-r', this)" accept="image/*" style="margin-top:5px;">
+                </div>
+
+                <div class="form-group">
+                    <label>Article NIBT</label>
+                    <input type="text" id="edit-article">
+                </div>
+
+                <div class="form-group">
+                    <label>Points</label>
+                    <input type="number" id="edit-points">
+                </div>
+
+                <button type="button" class="btn btn-success" onclick="saveQuestion()">Valider</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let allData = [];
+        let currentDisplayData = [];
+        let showAllAnswersState = false;
+
+        // Configuration de Marked.js pour gérer les sauts de ligne
+        marked.setOptions({ breaks: true });
+
+        // Chargement des données au démarrage
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('questions_reponses_nibt.json')
+                .then(response => response.json())
+                .then(data => {
+                    allData = data;
+                    currentDisplayData = data;
+                    renderQuestions(allData);
+                })
+                .catch(err => {
+                    console.error("Erreur chargement JSON", err);
+                    document.getElementById('questions-container').innerHTML = "<p>Impossible de charger le fichier JSON. Assurez-vous qu'il est présent.</p>";
+                });
+        });
+
+        // Fonction d'affichage principale
+        function renderQuestions(data) {
+            const container = document.getElementById('questions-container');
+            container.innerHTML = '';
+
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                
+                // Traitement des images : si null, pas d'image. Sinon chemin relatif.
+                const imgQ = item.image_question ? `<img src="images/${item.image_question}" class="question-img" alt="Image Question" onerror="this.style.display='none'">` : '';
+                const imgR = item.image_reponse ? `<img src="images/${item.image_reponse}" class="answer-img" alt="Image Réponse" onerror="this.style.display='none'">` : '';
+
+                // Conversion Markdown -> HTML
+                const questionHtml = marked.parse(item.question_text || '');
+                const reponseHtml = marked.parse(item.reponse_text || '');
+
+                card.innerHTML = `
+                    <div class="card-header">
+                        <span>#${item.id_question} - Art. ${item.Numero_Article_NIBT || '?'}</span>
+                        <span>${item.Nb_Pts_Reponse || 0} pts</span>
+                    </div>
+                    <div class="question-content">
+                        ${questionHtml}
+                        ${imgQ}
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="toggleAnswer(this)" style="width:100%;">Voir Réponse</button>
+                    
+                    <div class="answer-section ${showAllAnswersState ? 'visible' : ''}">
+                        <strong>Réponse :</strong>
+                        <div>${reponseHtml}</div>
+                        ${imgR}
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="btn btn-warning" onclick="editQuestion(${item.id_question})">✏️ Éditer</button>
+                        <button class="btn btn-danger" onclick="deleteQuestion(${item.id_question})">🗑️</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            
+            // Rendu des maths après injection HTML
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        // --- Logique d'affichage ---
+
+        function filterQuestions() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            currentDisplayData = allData.filter(q => 
+                (q.question_text && q.question_text.toLowerCase().includes(query)) || 
+                (q.reponse_text && q.reponse_text.toLowerCase().includes(query))
+            );
+            renderQuestions(currentDisplayData);
+        }
+
+        function showRandom() {
+            const n = parseInt(document.getElementById('random-n').value) || 5;
+            const shuffled = [...allData].sort(() => 0.5 - Math.random());
+            currentDisplayData = shuffled.slice(0, n);
+            renderQuestions(currentDisplayData);
+        }
+
+        function showAll() {
+            document.getElementById('search-input').value = '';
+            currentDisplayData = allData;
+            renderQuestions(allData);
+        }
+
+        function toggleAnswer(btn) {
+            const section = btn.nextElementSibling;
+            section.classList.toggle('visible');
+            btn.textContent = section.classList.contains('visible') ? "Masquer Réponse" : "Voir Réponse";
+        }
+
+        function toggleAllAnswers() {
+            showAllAnswersState = !showAllAnswersState;
+            const answers = document.querySelectorAll('.answer-section');
+            answers.forEach(a => {
+                if(showAllAnswersState) a.classList.add('visible');
+                else a.classList.remove('visible');
+            });
+        }
+
+        // --- CRUD Logic ---
+
+        function openEditor(id = null) {
+            const modal = document.getElementById('editor-modal');
+            const title = document.getElementById('modal-title');
+            
+            if (id) {
+                const item = allData.find(q => q.id_question === id);
+                title.textContent = "Éditer la question #" + id;
+                document.getElementById('edit-id').value = id;
+                document.getElementById('edit-question').value = item.question_text;
+                document.getElementById('edit-img-q').value = item.image_question || '';
+                document.getElementById('edit-reponse').value = item.reponse_text;
+                document.getElementById('edit-img-r').value = item.image_reponse || '';
+                document.getElementById('edit-article').value = item.Numero_Article_NIBT;
+                document.getElementById('edit-points').value = item.Nb_Pts_Reponse;
+            } else {
+                title.textContent = "Nouvelle Question";
+                document.getElementById('question-form').reset();
+                document.getElementById('edit-id').value = '';
+            }
+            modal.style.display = 'block';
+        }
+
+        function closeEditor() {
+            document.getElementById('editor-modal').style.display = 'none';
+        }
+
+        function editQuestion(id) {
+            openEditor(id);
+        }
+
+        function deleteQuestion(id) {
+            if(confirm("Êtes-vous sûr de vouloir supprimer cette question ?")) {
+                allData = allData.filter(q => q.id_question !== id);
+                renderQuestions(currentDisplayData.filter(q => q.id_question !== id));
+            }
+        }
+
+        // Gestion de l'input fichier pour récupérer juste le nom
+        // Note: Pour GitHub Pages, l'image doit être placée manuellement dans le dossier images/
+        function previewFile(inputId, fileInput) {
+            if (fileInput.files && fileInput.files[0]) {
+                const file = fileInput.files[0];
+                document.getElementById(inputId).value = file.name; // On garde juste le nom pour le JSON
+                alert("N'oubliez pas de copier le fichier '" + file.name + "' dans le dossier 'images' de votre projet avant de pousser sur GitHub !");
+            }
+        }
+
+        function saveQuestion() {
+            const id = document.getElementById('edit-id').value;
+            const qText = document.getElementById('edit-question').value;
+            const qImg = document.getElementById('edit-img-q').value || null;
+            const rText = document.getElementById('edit-reponse').value;
+            const rImg = document.getElementById('edit-img-r').value || null;
+            const art = document.getElementById('edit-article').value;
+            const pts = parseInt(document.getElementById('edit-points').value);
+
+            if (id) {
+                // Update
+                const index = allData.findIndex(q => q.id_question == id);
+                if (index !== -1) {
+                    allData[index] = { 
+                        ...allData[index], 
+                        question_text: qText, image_question: qImg, 
+                        reponse_text: rText, image_reponse: rImg, 
+                        Numero_Article_NIBT: art, Nb_Pts_Reponse: pts 
+                    };
+                }
+            } else {
+                // Create
+                const newId = allData.length > 0 ? Math.max(...allData.map(q => q.id_question)) + 1 : 1;
+                const newItem = {
+                    id_question: newId,
+                    question_text: qText, image_question: qImg,
+                    reponse_text: rText, image_reponse: rImg,
+                    Numero_Article_NIBT: art, Nb_Pts_Reponse: pts
+                };
+                allData.push(newItem);
+            }
+            
+            closeEditor();
+            // Rafraîchir l'affichage
+            filterQuestions(); // Ou renderQuestions(allData)
+        }
+
+        function downloadJSON() {
+            const dataStr = JSON.stringify(allData, null, 2);
+            const blob = new Blob([dataStr], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "questions_reponses_nibt.json";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            alert("Fichier JSON téléchargé ! Remplacez votre ancien fichier dans le dossier du projet, ajoutez les images si nécessaire, puis faites un commit/push sur GitHub.");
+        }
+
+        // Fermer la modale si on clique dehors
+        window.onclick = function(event) {
+            const modal = document.getElementById('editor-modal');
+            if (event.target == modal) {
+                closeEditor();
+            }
+        }
+    </script>
+</body>
+</html>
