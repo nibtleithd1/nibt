@@ -19,7 +19,7 @@
         .controls { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; gap: 15px; align-items: center; margin-bottom: 20px; }
         .controls input[type="text"], .controls input[type="number"] { padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
         
-        /* Style pour la checkbox */
+        /* Checkbox style */
         .checkbox-container { display: flex; align-items: center; gap: 5px; cursor: pointer; user-select: none; border: 1px solid #ddd; padding: 8px; border-radius: 4px; background: #fafafa; }
         .checkbox-container:hover { background: #eee; }
         .checkbox-container input { cursor: pointer; }
@@ -37,22 +37,81 @@
         
         .card-header { font-weight: bold; margin-bottom: 10px; display: flex; justify-content: space-between; color: #555; font-size: 0.9em; }
         .question-content { margin-bottom: 15px; font-size: 1.1em; line-height: 1.5; }
-        .question-img, .answer-img { max-width: 100%; height: auto; margin-top: 10px; border-radius: 4px; border: 1px solid #eee; }
+        
+        /* Styles des images miniatures */
+        .question-img, .answer-img { 
+            max-width: 100%; 
+            height: auto; 
+            margin-top: 10px; 
+            border-radius: 4px; 
+            border: 1px solid #eee; 
+            cursor: zoom-in; /* Curseur loupe */
+            transition: opacity 0.2s;
+        }
+        .question-img:hover, .answer-img:hover {
+            opacity: 0.8;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
         
         .answer-section { margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; display: none; background-color: #eef9ff; padding: 10px; border-radius: 5px; }
         .answer-section.visible { display: block; }
         
         .card-actions { margin-top: auto; display: flex; gap: 10px; padding-top: 10px; }
         
-        /* Mode Édition */
+        /* --- Styles du ZOOM (Lightbox) --- */
+        #zoom-modal {
+            display: none; /* Caché par défaut */
+            position: fixed; 
+            z-index: 2000; /* Au-dessus de tout */
+            padding-top: 50px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.9); /* Fond noir transparent */
+        }
+        
+        .zoom-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+            animation: zoomAnim 0.3s;
+        }
+
+        @keyframes zoomAnim {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+
+        .close-zoom {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close-zoom:hover, .close-zoom:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* --- Mode Édition --- */
         #editor-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; overflow-y: auto; }
         .modal-content { background: white; margin: 50px auto; padding: 30px; width: 90%; max-width: 600px; border-radius: 8px; position: relative; }
         .close-modal { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; }
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
         .form-group input, .form-group textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
-        .preview-img { max-width: 100px; max-height: 100px; display: block; margin-top: 5px; }
-
+        
         /* Impression */
         @media print {
             .controls, .card-actions, .btn { display: none !important; }
@@ -87,8 +146,12 @@
         </div>
     </div>
 
-    <div id="questions-container" class="grid">
-        </div>
+    <div id="questions-container" class="grid"></div>
+
+    <div id="zoom-modal" onclick="closeZoom()">
+        <span class="close-zoom">&times;</span>
+        <img class="zoom-content" id="img-in-zoom">
+    </div>
 
     <div id="editor-modal">
         <div class="modal-content">
@@ -96,39 +159,32 @@
             <h2 id="modal-title">Éditer la question</h2>
             <form id="question-form">
                 <input type="hidden" id="edit-id">
-                
                 <div class="form-group">
                     <label>Question (Markdown accepté)</label>
                     <textarea id="edit-question" rows="4" required></textarea>
                 </div>
-                
                 <div class="form-group">
                     <label>Image Question (Nom du fichier dans /images)</label>
                     <input type="text" id="edit-img-q" placeholder="exemple.jpg">
                     <input type="file" onchange="previewFile('edit-img-q', this)" accept="image/*" style="margin-top:5px;">
                 </div>
-
                 <div class="form-group">
                     <label>Réponse (Markdown accepté)</label>
                     <textarea id="edit-reponse" rows="4" required></textarea>
                 </div>
-
                 <div class="form-group">
                     <label>Image Réponse</label>
                     <input type="text" id="edit-img-r" placeholder="exemple_rep.jpg">
                     <input type="file" onchange="previewFile('edit-img-r', this)" accept="image/*" style="margin-top:5px;">
                 </div>
-
                 <div class="form-group">
                     <label>Article NIBT</label>
                     <input type="text" id="edit-article">
                 </div>
-
                 <div class="form-group">
                     <label>Points</label>
                     <input type="number" id="edit-points">
                 </div>
-
                 <button type="button" class="btn btn-success" onclick="saveQuestion()">Valider</button>
             </form>
         </div>
@@ -139,10 +195,8 @@
         let currentDisplayData = [];
         let showAllAnswersState = false;
 
-        // Configuration de Marked.js
         marked.setOptions({ breaks: true });
 
-        // Chargement des données au démarrage
         document.addEventListener('DOMContentLoaded', () => {
             fetch('questions_reponses_nibt.json')
                 .then(response => response.json())
@@ -157,13 +211,30 @@
                 });
         });
 
-        // Nettoyage LaTeX ~ -> &nbsp;
         function cleanForMarkdown(text) {
             if (!text) return '';
             return text.replace(/~/g, '&nbsp;');
         }
 
-        // Fonction d'affichage principale
+        // --- GESTION DU ZOOM ---
+        function openZoom(src) {
+            const modal = document.getElementById("zoom-modal");
+            const modalImg = document.getElementById("img-in-zoom");
+            modal.style.display = "block";
+            modalImg.src = src;
+        }
+
+        function closeZoom() {
+            document.getElementById("zoom-modal").style.display = "none";
+        }
+        
+        // Fermer le zoom avec la touche Echap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeZoom();
+            }
+        });
+
         function renderQuestions(data) {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
@@ -177,8 +248,12 @@
                 const card = document.createElement('div');
                 card.className = 'card';
                 
-                const imgQ = item.image_question ? `<img src="images/${item.image_question}" class="question-img" alt="Image Question" onerror="this.style.display='none'">` : '';
-                const imgR = item.image_reponse ? `<img src="images/${item.image_reponse}" class="answer-img" alt="Image Réponse" onerror="this.style.display='none'">` : '';
+                // Ajout de l'événement onclick="openZoom(...)" sur les images
+                const imgQ = item.image_question ? 
+                    `<img src="images/${item.image_question}" class="question-img" alt="Image Question" onclick="openZoom(this.src)" onerror="this.style.display='none'">` : '';
+                
+                const imgR = item.image_reponse ? 
+                    `<img src="images/${item.image_reponse}" class="answer-img" alt="Image Réponse" onclick="openZoom(this.src)" onerror="this.style.display='none'">` : '';
 
                 const rawQ = cleanForMarkdown(item.question_text);
                 const rawR = cleanForMarkdown(item.reponse_text);
@@ -217,31 +292,22 @@
             }
         }
 
-        // --- Logique de filtrage (MISE À JOUR) ---
         function filterQuestions() {
             const query = document.getElementById('search-input').value.toLowerCase();
             const onlyImgQ = document.getElementById('filter-img-q').checked;
 
             currentDisplayData = allData.filter(q => {
-                // 1. Filtre par texte
                 const matchText = (q.question_text && q.question_text.toLowerCase().includes(query)) || 
                                   (q.reponse_text && q.reponse_text.toLowerCase().includes(query));
-                
-                // 2. Filtre par image (si coché)
-                // On vérifie si image_question existe et n'est pas vide
                 const matchImg = onlyImgQ ? (q.image_question && q.image_question.trim() !== '') : true;
-
                 return matchText && matchImg;
             });
-
             renderQuestions(currentDisplayData);
         }
 
         function showRandom() {
-            // Réinitialise les filtres pour l'aléatoire
             document.getElementById('search-input').value = '';
             document.getElementById('filter-img-q').checked = false;
-
             const n = parseInt(document.getElementById('random-n').value) || 5;
             const shuffled = [...allData].sort(() => 0.5 - Math.random());
             currentDisplayData = shuffled.slice(0, n);
@@ -271,7 +337,6 @@
         }
 
         // --- CRUD Logic ---
-
         function openEditor(id = null) {
             const modal = document.getElementById('editor-modal');
             const title = document.getElementById('modal-title');
@@ -305,7 +370,6 @@
         function deleteQuestion(id) {
             if(confirm("Êtes-vous sûr de vouloir supprimer cette question ?")) {
                 allData = allData.filter(q => q.id_question !== id);
-                // On relance le filtre pour garder la vue cohérente
                 filterQuestions();
             }
         }
@@ -342,7 +406,7 @@
                 const newItem = {
                     id_question: newId,
                     question_text: qText, image_question: qImg,
-                    reponse_text: rText, image_reponse: rImg,
+                    reponse_text: rText, image_reponse: rImg, 
                     Numero_Article_NIBT: art, Nb_Pts_Reponse: pts
                 };
                 allData.push(newItem);
@@ -356,7 +420,6 @@
             const dataStr = JSON.stringify(allData, null, 2);
             const blob = new Blob([dataStr], { type: "application/json" });
             const url = URL.createObjectURL(blob);
-            
             const a = document.createElement('a');
             a.href = url;
             a.download = "questions_reponses_nibt.json";
@@ -364,13 +427,13 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            
             alert("Sauvegarde téléchargée ! Remplacer le fichier dans votre dépôt GitHub.");
         }
 
+        // Fermer les modales si on clique dehors
         window.onclick = function(event) {
-            const modal = document.getElementById('editor-modal');
-            if (event.target == modal) {
+            const editorModal = document.getElementById('editor-modal');
+            if (event.target == editorModal) {
                 closeEditor();
             }
         }
