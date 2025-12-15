@@ -81,6 +81,17 @@
         
         .answer-section { margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; display: none; background-color: #eef9ff; padding: 10px; border-radius: 5px; }
         .answer-section.visible { display: block; }
+
+        /* Style spécifique pour l'article NIBT dans la réponse */
+        .article-ref {
+            margin-top: 15px;
+            padding-top: 5px;
+            border-top: 1px solid #d1e7dd;
+            font-size: 0.9em;
+            color: #0f5132;
+            font-style: italic;
+            text-align: right;
+        }
         
         .card-actions { margin-top: auto; display: flex; gap: 10px; padding-top: 10px; }
         
@@ -140,7 +151,12 @@
 
             <label class="checkbox-container">
                 <input type="checkbox" id="filter-img-q" onchange="filterQuestions()">
-                <span>🖼️ Avec Image (Q)</span>
+                <span>🖼️ Image (Q)</span>
+            </label>
+
+            <label class="checkbox-container" style="color: #0056b3; font-weight: bold;">
+                <input type="checkbox" id="show-articles" checked onchange="renderQuestions(currentDisplayData)">
+                <span>📜 Afficher Articles</span>
             </label>
 
             <div style="margin-left: auto; display: flex; align-items: center; gap: 5px;">
@@ -239,9 +255,11 @@
         }
         document.addEventListener('keydown', e => { if(e.key === "Escape") closeZoom(); });
 
-        // --- RENDU ---
+        // --- RENDU (Modifié pour Article NIBT) ---
         function renderQuestions(data) {
             const container = document.getElementById('questions-container');
+            const showArticles = document.getElementById('show-articles').checked; // État de la case à cocher
+            
             container.innerHTML = '';
 
             if(data.length === 0) {
@@ -259,9 +277,14 @@
                 const qHtml = marked.parse(cleanForMarkdown(item.question_text));
                 const rHtml = marked.parse(cleanForMarkdown(item.reponse_text));
 
+                // Gestion de l'affichage conditionnel de l'article dans la réponse
+                const articleHtml = (item.Numero_Article_NIBT && showArticles) 
+                    ? `<div class="article-ref">📚 Art. ${item.Numero_Article_NIBT}</div>` 
+                    : '';
+
                 card.innerHTML = `
                     <div class="card-header">
-                        <span>#${item.id_question} - Art. ${item.Numero_Article_NIBT || '?'}</span>
+                        <span>#${item.id_question}</span>
                         <span>${item.Nb_Pts_Reponse || 0} pts</span>
                     </div>
                     <div class="question-content">
@@ -273,6 +296,7 @@
                         <strong>Réponse :</strong>
                         <div class="question-content">${rHtml}</div>
                         ${imgR}
+                        ${articleHtml}
                     </div>
                     <div class="card-actions">
                         <button class="btn btn-warning" onclick="editQuestion(${item.id_question})">✏️</button>
@@ -296,7 +320,6 @@
             currentDisplayData = allData.filter(q => {
                 let matchText = false;
                 
-                // Si la recherche est vide, tout correspond par défaut pour le texte
                 if (!query) {
                     matchText = true;
                 } else {
@@ -307,7 +330,6 @@
                     if (searchInR && rText.includes(query)) matchText = true;
                 }
 
-                // Filtre Image
                 const matchImg = onlyImgQ ? (q.image_question && q.image_question.trim() !== '') : true;
 
                 return matchText && matchImg;
@@ -320,7 +342,6 @@
             document.getElementById('search-input').value = '';
             document.getElementById('filter-img-q').checked = false;
             const n = parseInt(document.getElementById('random-n').value) || 5;
-            // On mélange une copie
             const shuffled = [...allData].sort(() => 0.5 - Math.random());
             currentDisplayData = shuffled.slice(0, n);
             renderQuestions(currentDisplayData);
