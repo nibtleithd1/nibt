@@ -15,32 +15,14 @@
         }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); margin: 0; padding: 20px; color: #333; }
         
-        /* --- Contrôles (Haut de page) --- */
+        /* --- Contrôles --- */
         .controls-container {
-            background: white; 
-            padding: 20px; 
-            border-radius: 8px; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-            margin-bottom: 20px;
+            background: white; padding: 20px; border-radius: 8px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px;
         }
 
-        .top-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-
-        .search-filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            align-items: center;
-            padding-top: 10px;
-            border-top: 1px solid #eee;
-        }
+        .top-bar { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+        .search-filters { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; padding-top: 10px; border-top: 1px solid #eee; }
 
         input[type="text"], input[type="number"] { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
         
@@ -48,14 +30,7 @@
         .checkbox-container { display: flex; align-items: center; gap: 5px; cursor: pointer; user-select: none; font-size: 0.9em; }
         .checkbox-container input { cursor: pointer; }
 
-        .stats-badge {
-            background-color: #e9ecef;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-weight: bold;
-            font-size: 0.9em;
-            color: #495057;
-        }
+        .stats-badge { background-color: #e9ecef; padding: 5px 10px; border-radius: 15px; font-weight: bold; font-size: 0.9em; color: #495057; }
 
         .btn { padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer; color: white; font-weight: bold; transition: background 0.3s; font-size: 0.9em; }
         .btn-primary { background-color: var(--primary-color); }
@@ -64,7 +39,7 @@
         .btn-warning { background-color: #ffc107; color: black; }
         .btn:hover { opacity: 0.9; }
 
-        /* --- Grille des questions --- */
+        /* --- Grille --- */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         .card { background: var(--card-bg); padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-direction: column; position: relative; }
         
@@ -80,32 +55,41 @@
         .answer-section { margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; display: none; background-color: #eef9ff; padding: 10px; border-radius: 5px; }
         .answer-section.visible { display: block; }
 
-        /* --- GESTION DE L'AFFICHAGE DE L'ARTICLE --- */
-        .article-ref {
+        /* --- STYLES DES ARTICLES NIBT --- */
+        
+        /* 1. Dans l'en-tête de la question (contrôlé par la checkbox) */
+        .article-ref-header {
+            color: #0056b3;
+            margin-left: 8px;
+            font-weight: normal;
+            display: none; /* Caché par défaut */
+        }
+        /* Affiché seulement si le conteneur a la classe 'show-header-ref' */
+        .questions-container.show-header-ref .article-ref-header {
+            display: inline;
+        }
+
+        /* 2. Dans le pied de la réponse (Toujours visible) */
+        .article-ref-footer {
             margin-top: 15px;
             padding-top: 5px;
             border-top: 1px solid #b6d4fe;
             font-size: 0.95em;
-            color: #084298; /* Bleu foncé */
+            color: #084298;
             font-weight: bold;
             text-align: right;
-            display: none; /* CACHÉ PAR DÉFAUT */
-        }
-
-        /* Quand le conteneur parent a la classe 'show-ref', on affiche l'article */
-        .questions-container.show-ref .article-ref {
-            display: block;
+            display: block; /* Toujours visible */
         }
         
         .card-actions { margin-top: auto; display: flex; gap: 10px; padding-top: 10px; }
         
-        /* --- Lightbox ZOOM --- */
+        /* --- Zoom --- */
         #zoom-modal { display: none; position: fixed; z-index: 2000; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); }
         .zoom-content { margin: auto; display: block; max-width: 90%; max-height: 90vh; animation: zoomAnim 0.3s; border-radius: 4px; }
         @keyframes zoomAnim { from {transform:scale(0)} to {transform:scale(1)} }
         .close-zoom { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
 
-        /* --- Mode Édition --- */
+        /* --- Édition --- */
         #editor-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; overflow-y: auto; }
         .modal-content { background: white; margin: 50px auto; padding: 30px; width: 90%; max-width: 600px; border-radius: 8px; position: relative; }
         .close-modal { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; }
@@ -126,16 +110,14 @@
     <div class="controls-container">
         <div class="top-bar">
             <div class="stats-badge" id="stats-display">Chargement...</div>
-            
             <div style="display: flex; gap: 10px;">
                 <button class="btn btn-primary" onclick="showAll()">Tout Afficher</button>
                 <button class="btn btn-warning" onclick="toggleAllAnswers()">👁️ Tout Révéler</button>
                 <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimer</button>
             </div>
-
             <div style="display: flex; gap: 10px;">
                 <button class="btn btn-success" onclick="openEditor()">+ Ajouter</button>
-                <button class="btn btn-danger" onclick="downloadJSON()">💾 Télécharger JSON Complet</button>
+                <button class="btn btn-danger" onclick="downloadJSON()">💾 Télécharger JSON</button>
             </div>
         </div>
 
@@ -143,12 +125,8 @@
             <input type="text" id="search-input" placeholder="Rechercher..." onkeyup="filterQuestions()" style="width: 200px;">
             
             <div class="checkbox-group">
-                <label class="checkbox-container">
-                    <input type="checkbox" id="search-in-q" checked onchange="filterQuestions()"> Quest.
-                </label>
-                <label class="checkbox-container">
-                    <input type="checkbox" id="search-in-r" checked onchange="filterQuestions()"> Rép.
-                </label>
+                <label class="checkbox-container"><input type="checkbox" id="search-in-q" checked onchange="filterQuestions()"> Quest.</label>
+                <label class="checkbox-container"><input type="checkbox" id="search-in-r" checked onchange="filterQuestions()"> Rép.</label>
             </div>
 
             <div style="border-left: 1px solid #ddd; height: 20px; margin: 0 5px;"></div>
@@ -158,9 +136,9 @@
                 <span>🖼️ Img (Q)</span>
             </label>
 
-            <label class="checkbox-container" style="color: #0056b3; font-weight: bold;">
-                <input type="checkbox" id="show-articles-check" checked onchange="toggleArticles()">
-                <span>📜 Afficher Articles</span>
+            <label class="checkbox-container" style="color: #0056b3; font-weight: bold; background: #eef9ff; padding: 5px 10px; border-radius: 15px; border: 1px solid #b6d4fe;">
+                <input type="checkbox" id="show-header-check" checked onchange="toggleHeaderArticles()">
+                <span>📜 Afficher Article (Question)</span>
             </label>
 
             <div style="margin-left: auto; display: flex; align-items: center; gap: 5px;">
@@ -183,32 +161,12 @@
             <h2 id="modal-title">Éditer la question</h2>
             <form id="question-form">
                 <input type="hidden" id="edit-id">
-                <div class="form-group">
-                    <label>Question (Markdown)</label>
-                    <textarea id="edit-question" rows="4"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Image Question (Nom fichier)</label>
-                    <input type="text" id="edit-img-q">
-                    <input type="file" onchange="previewFile('edit-img-q', this)" accept="image/*" style="margin-top:5px;">
-                </div>
-                <div class="form-group">
-                    <label>Réponse (Markdown)</label>
-                    <textarea id="edit-reponse" rows="4"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Image Réponse (Nom fichier)</label>
-                    <input type="text" id="edit-img-r">
-                    <input type="file" onchange="previewFile('edit-img-r', this)" accept="image/*" style="margin-top:5px;">
-                </div>
-                <div class="form-group">
-                    <label>Article NIBT</label>
-                    <input type="text" id="edit-article">
-                </div>
-                <div class="form-group">
-                    <label>Points</label>
-                    <input type="number" id="edit-points">
-                </div>
+                <div class="form-group"><label>Question</label><textarea id="edit-question" rows="4"></textarea></div>
+                <div class="form-group"><label>Image Question</label><input type="text" id="edit-img-q"><input type="file" onchange="previewFile('edit-img-q', this)" accept="image/*" style="margin-top:5px;"></div>
+                <div class="form-group"><label>Réponse</label><textarea id="edit-reponse" rows="4"></textarea></div>
+                <div class="form-group"><label>Image Réponse</label><input type="text" id="edit-img-r"><input type="file" onchange="previewFile('edit-img-r', this)" accept="image/*" style="margin-top:5px;"></div>
+                <div class="form-group"><label>Article NIBT</label><input type="text" id="edit-article"></div>
+                <div class="form-group"><label>Points</label><input type="number" id="edit-points"></div>
                 <button type="button" class="btn btn-success" onclick="saveQuestion()">Valider</button>
             </form>
         </div>
@@ -229,30 +187,24 @@
                     currentDisplayData = data;
                     updateStats();
                     renderQuestions(allData);
-                    toggleArticles(); // Appliquer l'état initial de la case à cocher
+                    toggleHeaderArticles(); // Appliquer l'état initial
                 })
                 .catch(err => {
-                    console.error("Erreur chargement JSON", err);
-                    document.getElementById('stats-display').textContent = "Erreur chargement fichier";
-                    document.getElementById('questions-container').innerHTML = "<p>Impossible de charger 'questions_reponses_nibt.json'. Vérifiez qu'il est présent.</p>";
+                    console.error("Erreur", err);
+                    document.getElementById('questions-container').innerHTML = "<p>Erreur chargement JSON.</p>";
                 });
         });
 
-        // --- GESTION DE L'AFFICHAGE CSS DES ARTICLES ---
-        function toggleArticles() {
-            const isChecked = document.getElementById('show-articles-check').checked;
+        // --- Toggle CSS pour l'entête ---
+        function toggleHeaderArticles() {
+            const isChecked = document.getElementById('show-header-check').checked;
             const container = document.getElementById('questions-container');
-            if (isChecked) {
-                container.classList.add('show-ref');
-            } else {
-                container.classList.remove('show-ref');
-            }
+            if (isChecked) container.classList.add('show-header-ref');
+            else container.classList.remove('show-header-ref');
         }
 
         function updateStats() {
-            const total = allData.length;
-            const displayed = currentDisplayData.length;
-            document.getElementById('stats-display').textContent = `Total Base: ${total} | Affichées: ${displayed}`;
+            document.getElementById('stats-display').textContent = `Total Base: ${allData.length} | Affichées: ${currentDisplayData.length}`;
         }
 
         function cleanForMarkdown(text) {
@@ -260,18 +212,14 @@
             return text.replace(/~/g, '&nbsp;');
         }
 
-        // --- ZOOM ---
         function openZoom(src) {
-            const modal = document.getElementById("zoom-modal");
             document.getElementById("img-in-zoom").src = src;
-            modal.style.display = "block";
+            document.getElementById("zoom-modal").style.display = "block";
         }
-        function closeZoom() {
-            document.getElementById("zoom-modal").style.display = "none";
-        }
+        function closeZoom() { document.getElementById("zoom-modal").style.display = "none"; }
         document.addEventListener('keydown', e => { if(e.key === "Escape") closeZoom(); });
 
-        // --- RENDU ---
+        // --- Rendu ---
         function renderQuestions(data) {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
@@ -291,14 +239,18 @@
                 const qHtml = marked.parse(cleanForMarkdown(item.question_text));
                 const rHtml = marked.parse(cleanForMarkdown(item.reponse_text));
 
-                // On injecte TOUJOURS l'article, mais c'est le CSS qui le cache ou l'affiche
-                // On vérifie juste qu'il n'est pas null/undefined
-                const articleText = item.Numero_Article_NIBT ? `📚 Art. ${item.Numero_Article_NIBT}` : '';
-                const articleHtml = articleText ? `<div class="article-ref">${articleText}</div>` : '';
+                // Création des chaînes HTML pour l'article (Header et Footer)
+                const articleText = item.Numero_Article_NIBT ? `Art. ${item.Numero_Article_NIBT}` : '';
+                
+                // Header: span avec classe spécifique (masqué/affiché par CSS)
+                const headerRefHtml = articleText ? `<span class="article-ref-header">- ${articleText}</span>` : '';
+                
+                // Footer: div toujours visible
+                const footerRefHtml = articleText ? `<div class="article-ref-footer">📚 ${articleText}</div>` : '';
 
                 card.innerHTML = `
                     <div class="card-header">
-                        <span>#${item.id_question}</span>
+                        <span>#${item.id_question} ${headerRefHtml}</span>
                         <span>${item.Nb_Pts_Reponse || 0} pts</span>
                     </div>
                     <div class="question-content">
@@ -310,7 +262,7 @@
                         <strong>Réponse :</strong>
                         <div class="question-content">${rHtml}</div>
                         ${imgR}
-                        ${articleHtml}
+                        ${footerRefHtml}
                     </div>
                     <div class="card-actions">
                         <button class="btn btn-warning" onclick="editQuestion(${item.id_question})">✏️</button>
@@ -324,7 +276,7 @@
             updateStats();
         }
 
-        // --- FILTRES ---
+        // --- Filtres ---
         function filterQuestions() {
             const query = document.getElementById('search-input').value.toLowerCase();
             const searchInQ = document.getElementById('search-in-q').checked;
@@ -333,9 +285,8 @@
 
             currentDisplayData = allData.filter(q => {
                 let matchText = false;
-                if (!query) {
-                    matchText = true;
-                } else {
+                if (!query) matchText = true;
+                else {
                     const qText = q.question_text ? q.question_text.toLowerCase() : "";
                     const rText = q.reponse_text ? q.reponse_text.toLowerCase() : "";
                     if (searchInQ && qText.includes(query)) matchText = true;
@@ -344,7 +295,6 @@
                 const matchImg = onlyImgQ ? (q.image_question && q.image_question.trim() !== '') : true;
                 return matchText && matchImg;
             });
-
             renderQuestions(currentDisplayData);
         }
 
@@ -383,7 +333,6 @@
         function openEditor(id = null) {
             const modal = document.getElementById('editor-modal');
             const title = document.getElementById('modal-title');
-            
             if (id) {
                 const item = allData.find(q => q.id_question === id);
                 title.textContent = "Éditer #" + id;
@@ -404,22 +353,18 @@
 
         function closeEditor() { document.getElementById('editor-modal').style.display = 'none'; }
         function editQuestion(id) { openEditor(id); }
-        
         function deleteQuestion(id) {
             if(confirm("Supprimer la question #" + id + " ?")) {
                 allData = allData.filter(q => q.id_question !== id);
                 filterQuestions();
             }
         }
-
         function previewFile(inputId, fileInput) {
             if (fileInput.files && fileInput.files[0]) {
-                const file = fileInput.files[0];
-                document.getElementById(inputId).value = file.name;
-                alert("Note : Copiez manuellement '" + file.name + "' dans le dossier 'images/' avant le push GitHub.");
+                document.getElementById(inputId).value = fileInput.files[0].name;
+                alert("Note : Copiez manuellement l'image dans le dossier 'images/' avant le push GitHub.");
             }
         }
-
         function saveQuestion() {
             const id = document.getElementById('edit-id').value;
             const qText = document.getElementById('edit-question').value;
@@ -431,9 +376,7 @@
 
             if (id) {
                 const index = allData.findIndex(q => q.id_question == id);
-                if (index !== -1) {
-                    allData[index] = { ...allData[index], question_text: qText, image_question: qImg, reponse_text: rText, image_reponse: rImg, Numero_Article_NIBT: art, Nb_Pts_Reponse: pts };
-                }
+                if (index !== -1) allData[index] = { ...allData[index], question_text: qText, image_question: qImg, reponse_text: rText, image_reponse: rImg, Numero_Article_NIBT: art, Nb_Pts_Reponse: pts };
             } else {
                 const newId = allData.length > 0 ? Math.max(...allData.map(q => q.id_question)) + 1 : 1;
                 allData.push({ id_question: newId, question_text: qText, image_question: qImg, reponse_text: rText, image_reponse: rImg, Numero_Article_NIBT: art, Nb_Pts_Reponse: pts });
@@ -441,24 +384,15 @@
             closeEditor();
             filterQuestions();
         }
-
         function downloadJSON() {
-            const dataStr = JSON.stringify(allData, null, 2);
-            const blob = new Blob([dataStr], { type: "application/json" });
+            const blob = new Blob([JSON.stringify(allData, null, 2)], { type: "application/json" });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
-            a.href = url;
-            a.download = "questions_reponses_nibt.json";
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            alert("Fichier JSON prêt. Remplacez l'original dans votre dossier GitHub.");
+            a.href = url; a.download = "questions_reponses_nibt.json";
+            document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+            alert("Fichier JSON prêt.");
         }
-
-        window.onclick = function(e) {
-            if (e.target == document.getElementById('editor-modal')) closeEditor();
-        }
+        window.onclick = function(e) { if (e.target == document.getElementById('editor-modal')) closeEditor(); }
     </script>
 </body>
 </html>
