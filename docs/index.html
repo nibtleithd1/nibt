@@ -146,8 +146,7 @@
                 });
         });
 
-        // Fonction d'affichage principale
-        function renderQuestions(data) {
+function renderQuestions(data) {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
 
@@ -155,13 +154,18 @@
                 const card = document.createElement('div');
                 card.className = 'card';
                 
-                // Traitement des images : si null, pas d'image. Sinon chemin relatif.
+                // Images
                 const imgQ = item.image_question ? `<img src="images/${item.image_question}" class="question-img" alt="Image Question" onerror="this.style.display='none'">` : '';
                 const imgR = item.image_reponse ? `<img src="images/${item.image_reponse}" class="answer-img" alt="Image Réponse" onerror="this.style.display='none'">` : '';
 
+                // --- CORRECTION DES CARACTÈRES SPÉCIAUX ---
+                // Remplacement global (/g) du tilde par &nbsp; pour l'espace insécable
+                let cleanQuestion = (item.question_text || '').replace(/~/g, "&nbsp;");
+                let cleanReponse = (item.reponse_text || '').replace(/~/g, "&nbsp;");
+
                 // Conversion Markdown -> HTML
-                const questionHtml = marked.parse(item.question_text || '');
-                const reponseHtml = marked.parse(item.reponse_text || '');
+                const questionHtml = marked.parse(cleanQuestion);
+                const reponseHtml = marked.parse(cleanReponse);
 
                 card.innerHTML = `
                     <div class="card-header">
@@ -189,12 +193,11 @@
                 container.appendChild(card);
             });
             
-            // Rendu des maths après injection HTML
+            // Rendu des maths (MathJax) après l'injection HTML
             if (window.MathJax) {
                 MathJax.typesetPromise();
             }
         }
-
         // --- Logique d'affichage ---
 
         function filterQuestions() {
