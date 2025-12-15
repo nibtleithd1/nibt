@@ -44,7 +44,6 @@
 
         input[type="text"], input[type="number"] { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
         
-        /* Checkbox style */
         .checkbox-group { display: flex; gap: 10px; }
         .checkbox-container { display: flex; align-items: center; gap: 5px; cursor: pointer; user-select: none; font-size: 0.9em; }
         .checkbox-container input { cursor: pointer; }
@@ -72,7 +71,6 @@
         .card-header { font-weight: bold; margin-bottom: 10px; display: flex; justify-content: space-between; color: #555; font-size: 0.9em; }
         .question-content { margin-bottom: 15px; font-size: 1.1em; line-height: 1.5; }
         
-        /* Images */
         .question-img, .answer-img { 
             max-width: 100%; height: auto; margin-top: 10px; border-radius: 4px; border: 1px solid #eee; 
             cursor: zoom-in; transition: opacity 0.2s;
@@ -82,15 +80,21 @@
         .answer-section { margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc; display: none; background-color: #eef9ff; padding: 10px; border-radius: 5px; }
         .answer-section.visible { display: block; }
 
-        /* Style spécifique pour l'article NIBT dans la réponse */
+        /* --- GESTION DE L'AFFICHAGE DE L'ARTICLE --- */
         .article-ref {
             margin-top: 15px;
             padding-top: 5px;
-            border-top: 1px solid #d1e7dd;
-            font-size: 0.9em;
-            color: #0f5132;
-            font-style: italic;
+            border-top: 1px solid #b6d4fe;
+            font-size: 0.95em;
+            color: #084298; /* Bleu foncé */
+            font-weight: bold;
             text-align: right;
+            display: none; /* CACHÉ PAR DÉFAUT */
+        }
+
+        /* Quand le conteneur parent a la classe 'show-ref', on affiche l'article */
+        .questions-container.show-ref .article-ref {
+            display: block;
         }
         
         .card-actions { margin-top: auto; display: flex; gap: 10px; padding-top: 10px; }
@@ -139,11 +143,11 @@
             <input type="text" id="search-input" placeholder="Rechercher..." onkeyup="filterQuestions()" style="width: 200px;">
             
             <div class="checkbox-group">
-                <label class="checkbox-container" title="Chercher dans le texte des questions">
-                    <input type="checkbox" id="search-in-q" checked onchange="filterQuestions()"> Questions
+                <label class="checkbox-container">
+                    <input type="checkbox" id="search-in-q" checked onchange="filterQuestions()"> Quest.
                 </label>
-                <label class="checkbox-container" title="Chercher dans le texte des réponses">
-                    <input type="checkbox" id="search-in-r" checked onchange="filterQuestions()"> Réponses
+                <label class="checkbox-container">
+                    <input type="checkbox" id="search-in-r" checked onchange="filterQuestions()"> Rép.
                 </label>
             </div>
 
@@ -151,11 +155,11 @@
 
             <label class="checkbox-container">
                 <input type="checkbox" id="filter-img-q" onchange="filterQuestions()">
-                <span>🖼️ Image (Q)</span>
+                <span>🖼️ Img (Q)</span>
             </label>
 
             <label class="checkbox-container" style="color: #0056b3; font-weight: bold;">
-                <input type="checkbox" id="show-articles" checked onchange="renderQuestions(currentDisplayData)">
+                <input type="checkbox" id="show-articles-check" checked onchange="toggleArticles()">
                 <span>📜 Afficher Articles</span>
             </label>
 
@@ -166,7 +170,7 @@
         </div>
     </div>
 
-    <div id="questions-container" class="grid"></div>
+    <div id="questions-container" class="grid questions-container"></div>
 
     <div id="zoom-modal" onclick="closeZoom()">
         <span class="close-zoom">&times;</span>
@@ -225,6 +229,7 @@
                     currentDisplayData = data;
                     updateStats();
                     renderQuestions(allData);
+                    toggleArticles(); // Appliquer l'état initial de la case à cocher
                 })
                 .catch(err => {
                     console.error("Erreur chargement JSON", err);
@@ -232,6 +237,17 @@
                     document.getElementById('questions-container').innerHTML = "<p>Impossible de charger 'questions_reponses_nibt.json'. Vérifiez qu'il est présent.</p>";
                 });
         });
+
+        // --- GESTION DE L'AFFICHAGE CSS DES ARTICLES ---
+        function toggleArticles() {
+            const isChecked = document.getElementById('show-articles-check').checked;
+            const container = document.getElementById('questions-container');
+            if (isChecked) {
+                container.classList.add('show-ref');
+            } else {
+                container.classList.remove('show-ref');
+            }
+        }
 
         function updateStats() {
             const total = allData.length;
@@ -255,11 +271,9 @@
         }
         document.addEventListener('keydown', e => { if(e.key === "Escape") closeZoom(); });
 
-        // --- RENDU (Modifié pour Article NIBT) ---
+        // --- RENDU ---
         function renderQuestions(data) {
             const container = document.getElementById('questions-container');
-            const showArticles = document.getElementById('show-articles').checked; // État de la case à cocher
-            
             container.innerHTML = '';
 
             if(data.length === 0) {
@@ -277,10 +291,10 @@
                 const qHtml = marked.parse(cleanForMarkdown(item.question_text));
                 const rHtml = marked.parse(cleanForMarkdown(item.reponse_text));
 
-                // Gestion de l'affichage conditionnel de l'article dans la réponse
-                const articleHtml = (item.Numero_Article_NIBT && showArticles) 
-                    ? `<div class="article-ref">📚 Art. ${item.Numero_Article_NIBT}</div>` 
-                    : '';
+                // On injecte TOUJOURS l'article, mais c'est le CSS qui le cache ou l'affiche
+                // On vérifie juste qu'il n'est pas null/undefined
+                const articleText = item.Numero_Article_NIBT ? `📚 Art. ${item.Numero_Article_NIBT}` : '';
+                const articleHtml = articleText ? `<div class="article-ref">${articleText}</div>` : '';
 
                 card.innerHTML = `
                     <div class="card-header">
@@ -319,19 +333,15 @@
 
             currentDisplayData = allData.filter(q => {
                 let matchText = false;
-                
                 if (!query) {
                     matchText = true;
                 } else {
                     const qText = q.question_text ? q.question_text.toLowerCase() : "";
                     const rText = q.reponse_text ? q.reponse_text.toLowerCase() : "";
-                    
                     if (searchInQ && qText.includes(query)) matchText = true;
                     if (searchInR && rText.includes(query)) matchText = true;
                 }
-
                 const matchImg = onlyImgQ ? (q.image_question && q.image_question.trim() !== '') : true;
-
                 return matchText && matchImg;
             });
 
