@@ -10,8 +10,8 @@
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']], // Autorise $...$ pour les formules en ligne
-                displayMath: [['$$', '$$'], ['\\[', '\\]']], // Autorise $$...$$ pour les blocs
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
                 processEscapes: true
             },
             options: {
@@ -41,8 +41,8 @@
 
         input[type="text"], input[type="number"] { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
         
-        .checkbox-group { display: flex; gap: 10px; }
-        .checkbox-container { display: flex; align-items: center; gap: 5px; cursor: pointer; user-select: none; font-size: 0.9em; }
+        .checkbox-group { display: flex; gap: 10px; align-items: center; }
+        .checkbox-container { display: flex; align-items: center; gap: 5px; cursor: pointer; user-select: none; font-size: 0.9em; white-space: nowrap; }
         .checkbox-container input { cursor: pointer; }
 
         .stats-badge { background-color: #e9ecef; padding: 5px 10px; border-radius: 15px; font-weight: bold; font-size: 0.9em; color: #495057; }
@@ -122,11 +122,12 @@
         </div>
 
         <div class="search-filters">
-            <input type="text" id="search-input" placeholder="Rechercher..." onkeyup="filterQuestions()" style="width: 200px;">
+            <input type="text" id="search-input" placeholder="Recherche (ex: 4.*.1)" onkeyup="filterQuestions()" style="width: 200px;">
             
             <div class="checkbox-group">
                 <label class="checkbox-container"><input type="checkbox" id="search-in-q" checked onchange="filterQuestions()"> Quest.</label>
                 <label class="checkbox-container"><input type="checkbox" id="search-in-r" checked onchange="filterQuestions()"> Rép.</label>
+                <label class="checkbox-container" style="color: #0f5132; font-weight:600;"><input type="checkbox" id="search-in-art" checked onchange="filterQuestions()"> Art.</label>
             </div>
 
             <div style="border-left: 1px solid #ddd; height: 20px; margin: 0 5px;"></div>
@@ -177,7 +178,6 @@
         let currentDisplayData = [];
         let showAllAnswersState = false;
 
-        // Configuration Marked.js
         marked.setOptions({ breaks: true });
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -196,7 +196,6 @@
                 });
         });
 
-        // Toggle CSS
         function toggleHeaderArticles() {
             const isChecked = document.getElementById('show-header-check').checked;
             const container = document.getElementById('questions-container');
@@ -220,7 +219,6 @@
         function closeZoom() { document.getElementById("zoom-modal").style.display = "none"; }
         document.addEventListener('keydown', e => { if(e.key === "Escape") closeZoom(); });
 
-        // Rendu
         function renderQuestions(data) {
             const container = document.getElementById('questions-container');
             container.innerHTML = '';
@@ -237,11 +235,9 @@
                 const imgQ = item.image_question ? `<img src="images/${item.image_question}" class="question-img" onclick="openZoom(this.src)" onerror="this.style.display='none'">` : '';
                 const imgR = item.image_reponse ? `<img src="images/${item.image_reponse}" class="answer-img" onclick="openZoom(this.src)" onerror="this.style.display='none'">` : '';
 
-                // Conversion Markdown
                 const qHtml = marked.parse(cleanForMarkdown(item.question_text));
                 const rHtml = marked.parse(cleanForMarkdown(item.reponse_text));
 
-                // Construction Articles HTML
                 const articleText = item.Numero_Article_NIBT ? `Art. ${item.Numero_Article_NIBT}` : '';
                 const headerRefHtml = articleText ? `<span class="article-ref-header">- ${articleText}</span>` : '';
                 const footerRefHtml = articleText ? `<div class="article-ref-footer">📚 ${articleText}</div>` : '';
@@ -270,30 +266,50 @@
                 container.appendChild(card);
             });
             
-            // Déclenche le rendu MathJax pour les nouvelles formules
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            }
+            if (window.MathJax) MathJax.typesetPromise();
             updateStats();
         }
 
-        // Filtres
+        // --- Logique de Recherche avec Wildcard ---
+        function createRegexFromInput(input) {
+            // Échappe les caractères spéciaux Regex sauf l'étoile
+            const parts = input.split('*');
+            const escapedParts = parts.map(p => p.replace(/[.+?^${}()|[\]\\]/g, '\\$&'));
+            // Rejoint avec '.*' qui signifie "n'importe quoi ici"
+            const pattern = escapedParts.join('.*');
+            return new RegExp(pattern, 'i'); // 'i' pour insensible à la casse
+        }
+
         function filterQuestions() {
-            const query = document.getElementById('search-input').value.toLowerCase();
+            const rawQuery = document.getElementById('search-input').value;
             const searchInQ = document.getElementById('search-in-q').checked;
             const searchInR = document.getElementById('search-in-r').checked;
+            const searchInArt = document.getElementById('search-in-art').checked;
             const onlyImgQ = document.getElementById('filter-img-q').checked;
+
+            let regex = null;
+            if (rawQuery) {
+                regex = createRegexFromInput(rawQuery);
+            }
 
             currentDisplayData = allData.filter(q => {
                 let matchText = false;
-                if (!query) matchText = true;
-                else {
-                    const qText = q.question_text ? q.question_text.toLowerCase() : "";
-                    const rText = q.reponse_text ? q.reponse_text.toLowerCase() : "";
-                    if (searchInQ && qText.includes(query)) matchText = true;
-                    if (searchInR && rText.includes(query)) matchText = true;
+                
+                if (!rawQuery) {
+                    matchText = true;
+                } else {
+                    const qText = q.question_text || "";
+                    const rText = q.reponse_text || "";
+                    const aText = q.Numero_Article_NIBT || "";
+
+                    // On teste chaque champ sélectionné avec la Regex
+                    if (searchInQ && regex.test(qText)) matchText = true;
+                    if (searchInR && regex.test(rText)) matchText = true;
+                    if (searchInArt && regex.test(aText)) matchText = true;
                 }
+
                 const matchImg = onlyImgQ ? (q.image_question && q.image_question.trim() !== '') : true;
+
                 return matchText && matchImg;
             });
             renderQuestions(currentDisplayData);
