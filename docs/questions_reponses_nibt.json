@@ -262,12 +262,12 @@
   },
   {
     "id_question": 30,
-    "question_text": "Comment doivent  être faite les liaisons lors de la pose du conducteur principal d'équipotentialité ? ",
+    "question_text": "Comment doivent  être faites les liaisons des parties \"conductrices étrangères (au bâtiment)\" lors de la pose du conducteur principal d'équipotentialité ? ",
     "image_question": null,
-    "reponse_text": "Il y a lieu de veiller à ce que les liaisons soient les plus courtes possible ",
+    "reponse_text": "Elles doivent être reliées entre elles aussi près que possible de l'endroit où elles entrent dans le bâtiment.",
     "image_reponse": null,
-    "Numero_Article_NIBT": "4.1.1.3.1.2 (E+C)",
-    "Nb_Pts_Reponse": 1
+    "Numero_Article_NIBT": "4.1.1.3.1.2",
+    "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 31,
