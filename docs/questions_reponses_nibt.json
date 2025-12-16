@@ -8182,11 +8182,11 @@
   },
   {
     "id_question": 911,
-    "question_text": "Dans la classification des volumes, faut-il tenir compte d'un flexible de 1,4~[m] pour une douche~?",
+    "question_text": "Le tuyau flexible de douche d’une longueur de 1,4 [m] doit-il être considéré comme une extension de la sortie d'eau fixe~?",
     "image_question": null,
-    "reponse_text": "Non. La sortie d'eau fixe est le point de fixation qui fait partie de l'installation de tuyauterie d'eau fixe.",
+    "reponse_text": "Non. La sortie du mélangeur de baignoire ou de douche est considérée comme une sortie d'eau fixe. Les tuyaux flexibles des pommes de douches ne font pas partie de la sortie d'eau fixe.",
     "image_reponse": null,
-    "Numero_Article_NIBT": "N7",
+    "Numero_Article_NIBT": "7.01.3.0",
     "Nb_Pts_Reponse": 3
   },
   {
