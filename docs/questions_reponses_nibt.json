@@ -2252,27 +2252,27 @@
   {
     "id_question": 251,
     "question_text": "Qu'est-ce que l'utilisation du symbole représenté indique dans la norme~?",
-    "image_question": "Frage_2_Grafik_Aufg.png",
+    "image_question": "251_20251217_154211_774553_Q.png",
     "reponse_text": "correct, judicieux",
-    "image_reponse": "Frage_2_Grafik_Lsg.png",
+    "image_reponse": "251_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N0",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 252,
     "question_text": "Qu'est-ce que l'utilisation du symbole représenté indique dans la norme~?",
-    "image_question": "Frage_3_Grafik_Aufg.png",
+    "image_question": "252_20251217_154211_774553_Q.png",
     "reponse_text": "nécessaire",
-    "image_reponse": "Frage_3_Grafik_Lsg.png",
+    "image_reponse": "252_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N0",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 253,
     "question_text": "Qu'est-ce que l'utilisation du symbole représenté indique dans la norme~?",
-    "image_question": "Frage_4_Grafik_Aufg.png",
+    "image_question": "253_20251217_154211_774553_Q.png",
     "reponse_text": "inadmissible",
-    "image_reponse": "Frage_4_Grafik_Lsg.png",
+    "image_reponse": "253_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N0",
     "Nb_Pts_Reponse": 3
   },
@@ -2288,36 +2288,36 @@
   {
     "id_question": 255,
     "question_text": "De quel type de conducteur s'agit-il dans ce symbole~?",
-    "image_question": "20220927-094212-z832.png",
+    "image_question": "255_20251217_154211_774553_Q.png",
     "reponse_text": "Conducteur de phase",
-    "image_reponse": "20220927-094217-z239.png",
+    "image_reponse": "255_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N0",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 256,
     "question_text": "De quel type de conducteur s'agit-il dans ce symbole~?",
-    "image_question": "Frage_7_Grafik_Aufg.png",
+    "image_question": "256_20251217_154211_774553_Q.png",
     "reponse_text": "Conducteur de protection",
-    "image_reponse": "Frage_7_Grafik_Lsg.png",
+    "image_reponse": "256_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N0",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 257,
     "question_text": "De quel type de conducteur s'agit-il dans ce symbole~?",
-    "image_question": "Frage_8_Grafik_Aufg.png",
+    "image_question": "257_20251217_154211_774553_Q.png",
     "reponse_text": "Conducteur PEN",
-    "image_reponse": "Frage_8_Grafik_Lsg.png",
+    "image_reponse": "257_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N0",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 258,
     "question_text": "De quel type de conducteur s'agit-il dans ce symbole~?",
-    "image_question": "Frage_9_Grafik_Aufg.png",
+    "image_question": "258_20251217_154211_774553_Q.png",
     "reponse_text": "Conducteur neutre",
-    "image_reponse": "Frage_9_Grafik_Lsg.png",
+    "image_reponse": "258_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N0",
     "Nb_Pts_Reponse": 3
   },
@@ -2450,45 +2450,45 @@
   {
     "id_question": 273,
     "question_text": "Désignez les éléments qui correspondent aux chiffres suivants : 1, 5, 7",
-    "image_question": "Frage_24_Grafik_Aufg.png",
+    "image_question": "273_20251217_154211_774553_Q.png",
     "reponse_text": "1 = Ligne d'amenée, 5 = Coupe-surintensité d'abonné, 7 = Circuits terminaux",
-    "image_reponse": "Frage_24_Grafik_Lsg.png",
+    "image_reponse": "273_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N0",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 274,
     "question_text": "Désignez les éléments qui correspondent aux chiffres suivants : 2, 2,1, 4",
-    "image_question": "Frage_25_Grafik_Aufg.png",
+    "image_question": "274_20251217_154211_774553_Q.png",
     "reponse_text": "2 = Coupe-surintensité général, 2.1 =  Boîte de raccordement domestique, 4 = Ligne d'abonné",
-    "image_reponse": "Frage_25_Grafik_Lsg.png",
+    "image_reponse": "274_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N0",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 275,
     "question_text": "Désignez les éléments qui correspondent aux chiffres suivants : 1, 3, 6",
-    "image_question": "Frage_26_Grafik_Aufg.png",
+    "image_question": "275_20251217_154211_774553_Q.png",
     "reponse_text": "1 = Ligne d'amenée, 3 = Colonne ou ligne principale, 6 = Coupe-surintensité d'un consommateur",
-    "image_reponse": "Frage_26_Grafik_Lsg.png",
+    "image_reponse": "275_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N0",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 276,
     "question_text": "Remplissez les espaces",
-    "image_question": "Frage_27_Grafik_Aufg_fr.png",
+    "image_question": "276_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_27_Grafik_Lsg_fr.png",
+    "image_reponse": "276_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N0",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 277,
     "question_text": "Remplissez les espaces",
-    "image_question": "Frage_29_Grafik_Aufg_fr.png",
+    "image_question": "277_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_29_Grafik_Lsg_fr.png",
+    "image_reponse": "277_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N0",
     "Nb_Pts_Reponse": 3
   },
@@ -2507,7 +2507,7 @@
     "image_question": null,
     "reponse_text": "2, 4, 6, 12, 24, 36, 48, 110, 220, 440",
     "image_reponse": null,
-    "Numero_Article_NIBT": "N0",
+    "Numero_Article_NIBT": "F2.2.2",
     "Nb_Pts_Reponse": 3
   },
   {
@@ -2711,27 +2711,27 @@
   {
     "id_question": 302,
     "question_text": "Complétez les notions manquantes dans le graphique",
-    "image_question": "Frage_54_Grafik_Aufg_fr.png",
+    "image_question": "302_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_54_Grafik_Lsg_fr.png",
+    "image_reponse": "302_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 303,
     "question_text": "Complétez les notions manquantes dans le graphique",
-    "image_question": "Frage_55_Grafik_Aufg_fr.png",
+    "image_question": "303_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_55_Grafik_Lsg_fr.png",
+    "image_reponse": "303_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 304,
     "question_text": "Complétez les notions manquantes dans le graphique",
-    "image_question": "Frage_56_Grafik_Aufg_fr.png",
+    "image_question": "304_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_56_Grafik_Lsg_fr.png",
+    "image_reponse": "304_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N1",
     "Nb_Pts_Reponse": 3
   },
@@ -2837,9 +2837,9 @@
   {
     "id_question": 316,
     "question_text": "Complétez le tableau.",
-    "image_question": "Frage_68_Grafik_Aufg_fr.png",
+    "image_question": "316_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_68_Grafik_Lsg_fr.png",
+    "image_reponse": "316_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N1",
     "Nb_Pts_Reponse": 3
   },
@@ -2999,9 +2999,9 @@
   {
     "id_question": 334,
     "question_text": "Complétez les notions manquantes dans le graphique",
-    "image_question": "Frage_86_Grafik_Aufg.png",
+    "image_question": "334_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_86_Grafik_Lsg_fr.png",
+    "image_reponse": "334_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N3",
     "Nb_Pts_Reponse": 3
   },
@@ -3107,9 +3107,9 @@
   {
     "id_question": 346,
     "question_text": "Dessinez dans le schéma le courant de service. De quel système s'agit-il~?",
-    "image_question": "Frage_98_Grafik_Aufg.png",
+    "image_question": "346_20251217_154211_774553_Q.png",
     "reponse_text": "TN-C",
-    "image_reponse": "Frage_98_Grafik_Lsg.png",
+    "image_reponse": "346_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N3",
     "Nb_Pts_Reponse": 3
   },
@@ -3125,9 +3125,9 @@
   {
     "id_question": 348,
     "question_text": "Dessinez dans le schéma le trajet du courant dans le cas d'un court-circuit à la masse. De quel système s'agit-il~?",
-    "image_question": "Frage_100_Grafik_Aufg.png",
+    "image_question": "348_20251217_154211_774553_Q.png",
     "reponse_text": "TN-S",
-    "image_reponse": "Frage_100_Grafik_Lsg.png",
+    "image_reponse": "348_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N3",
     "Nb_Pts_Reponse": 3
   },
@@ -3278,27 +3278,27 @@
   {
     "id_question": 365,
     "question_text": "Complétez les notions manquantes dans le graphique",
-    "image_question": "Frage_117_Grafik_Aufg_fr.png",
+    "image_question": "365_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_117_Grafik_Lsg_fr.png",
+    "image_reponse": "365_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 366,
     "question_text": "Complétez les notions manquantes dans le graphique",
-    "image_question": "Frage_118_Grafik_Aufg_fr.png",
+    "image_question": "366_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_118_Grafik_Lsg_fr.png",
+    "image_reponse": "366_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 367,
     "question_text": "Complétez les notions manquantes dans le graphique",
-    "image_question": "Frage_119_Grafik_Aufg_fr.png",
+    "image_question": "367_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_119_Grafik_Lsg_fr.png",
+    "image_reponse": "367_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.1",
     "Nb_Pts_Reponse": 3
   },
@@ -3485,18 +3485,18 @@
   {
     "id_question": 388,
     "question_text": "Complétez les notions manquantes dans le graphique",
-    "image_question": "Frage_140_Grafik_Aufg_fr.png",
+    "image_question": "388_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_140_Grafik_Lsg_fr.png",
+    "image_reponse": "388_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 389,
     "question_text": "Complétez les notions manquantes dans le graphique",
-    "image_question": "20220518-081923-z878.jpg",
+    "image_question": "389_20251217_154211_774553_Q.jpg",
     "reponse_text": "None",
-    "image_reponse": "20220518-081932-z839.jpg",
+    "image_reponse": "389_20251217_154211_774553_R.jpg",
     "Numero_Article_NIBT": "N4.1",
     "Nb_Pts_Reponse": 3
   },
@@ -3550,7 +3550,7 @@
     "question_text": "Expliquez le fonctionnement d'une protection par la classe de protection 2.",
     "image_question": null,
     "reponse_text": "Grâce à l'isolation double ou renforcée, il est assuré que des courants de choc dangereux ne puissent pas circuler en cas de défaillance de l'isolation principale.",
-    "image_reponse": "20230111-094129-z928.jpg",
+    "image_reponse": "395_20251217_154211_774553_R.jpg",
     "Numero_Article_NIBT": "N4.1",
     "Nb_Pts_Reponse": 3
   },
@@ -3568,7 +3568,7 @@
     "question_text": "Dessinez le symbole pour la classe de protection 3.",
     "image_question": null,
     "reponse_text": "None",
-    "image_reponse": "20230112-085532-z613.jpg",
+    "image_reponse": "397_20251217_154211_774553_R.jpg",
     "Numero_Article_NIBT": "N4.1!F2.4",
     "Nb_Pts_Reponse": 3
   },
@@ -3577,7 +3577,7 @@
     "question_text": "Dessinez le symbole pour la classe de protection 1.",
     "image_question": null,
     "reponse_text": "|",
-    "image_reponse": "20230112-085705-z685.jpg",
+    "image_reponse": "398_20251217_154211_774553_R.jpg",
     "Numero_Article_NIBT": "N4.1",
     "Nb_Pts_Reponse": 3
   },
@@ -3782,18 +3782,18 @@
   {
     "id_question": 421,
     "question_text": "Quelle est la grandeur de la distance E~?",
-    "image_question": "Frage_174_Grafik_Aufg.png",
+    "image_question": "421_20251217_154211_774553_Q.png",
     "reponse_text": "8~[cm]",
-    "image_reponse": "Frage_174_Grafik_Lsg.png",
+    "image_reponse": "421_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.2",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 422,
     "question_text": "Quelle est la grandeur de la distance E~?",
-    "image_question": "Frage_175_Grafik_Aufg.png",
+    "image_question": "422_20251217_154211_774553_Q.png",
     "reponse_text": "4~[cm]",
-    "image_reponse": "Frage_175_Grafik_Lsg.png",
+    "image_reponse": "422_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.2",
     "Nb_Pts_Reponse": 3
   },
@@ -3935,27 +3935,27 @@
   {
     "id_question": 438,
     "question_text": "Que signifie « B2 »~?",
-    "image_question": "Frage_194_Grafik_Aufg_fr.png",
+    "image_question": "438_20251217_154211_774553_Q.png",
     "reponse_text": "Contrôleur de débit",
-    "image_reponse": "Frage_194_Grafik_Lsg_fr.png",
+    "image_reponse": "438_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.2.2.4.1.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 439,
     "question_text": "Que signifie « B1 »~?",
-    "image_question": "Frage_195_Grafik_Aufg_fr.png",
+    "image_question": "439_20251217_154211_774553_Q.png",
     "reponse_text": "Limiteur de température",
-    "image_reponse": "Frage_195_Grafik_Lsg_fr.png",
+    "image_reponse": "439_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.2",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 440,
     "question_text": "Que signifie « B3 »~?",
-    "image_question": "Frage_196_Grafik_Aufg_fr.png",
+    "image_question": "440_20251217_154211_774553_Q.png",
     "reponse_text": "Régulateur de température",
-    "image_reponse": "Frage_196_Grafik_Lsg_fr.png",
+    "image_reponse": "440_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.2",
     "Nb_Pts_Reponse": 3
   },
@@ -4007,9 +4007,9 @@
   {
     "id_question": 446,
     "question_text": "Désignez les éléments indiqués par les chiffres 2 à 5.",
-    "image_question": "Frage_202_Grafik_Aufg_fr.png",
+    "image_question": "446_20251217_154211_774553_Q.png",
     "reponse_text": "2. Robinet, 3. Réducteur de pression, 4. Dispositif antiretour, 5. Soupape de sûreté",
-    "image_reponse": "Frage_202_Grafik_Lsg_fr.png",
+    "image_reponse": "446_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.2",
     "Nb_Pts_Reponse": 3
   },
@@ -4070,27 +4070,27 @@
   {
     "id_question": 453,
     "question_text": "De quel type de fusible s'agit-il~?",
-    "image_question": "Frage_209_Grafik_Aufg.png",
+    "image_question": "453_20251217_154211_774553_Q.png",
     "reponse_text": "Fusible pour appareils",
-    "image_reponse": "Frage_209_Grafik_Lsg.png",
+    "image_reponse": "453_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.3",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 454,
     "question_text": "De quel type de fusible s'agit-il~?",
-    "image_question": "Frage_210_Grafik_Aufg.png",
+    "image_question": "454_20251217_154211_774553_Q.png",
     "reponse_text": "Fusible miniature",
-    "image_reponse": "Frage_210_Grafik_Lsg.png",
+    "image_reponse": "454_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.3",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 455,
     "question_text": "De quel type de fusible s'agit-il~?",
-    "image_question": "Frage_211_Grafik_Aufg.png",
+    "image_question": "455_20251217_154211_774553_Q.png",
     "reponse_text": "Fusibles de puissance normale",
-    "image_reponse": "Frage_211_Grafik_Lsg.png",
+    "image_reponse": "455_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.3",
     "Nb_Pts_Reponse": 3
   },
@@ -4133,9 +4133,9 @@
   {
     "id_question": 460,
     "question_text": "Quelle est la signification du marquage correspondant sur un disjoncteur de canalisation~?",
-    "image_question": "Frage_216_Grafik_Aufg.png",
+    "image_question": "460_20251217_154211_774553_Q.png",
     "reponse_text": "Pouvoir de coupure nominal et classe de limitation d'énergie",
-    "image_reponse": "Frage_216_Grafik_Lsg.png",
+    "image_reponse": "460_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.3",
     "Nb_Pts_Reponse": 3
   },
@@ -4259,9 +4259,9 @@
   {
     "id_question": 474,
     "question_text": "Quelle est la signification des inscriptions~?",
-    "image_question": "Frage_230_Grafik_Aufg.png",
+    "image_question": "474_20251217_154211_774553_Q.png",
     "reponse_text": "Courant nominal: 500~[mA], comportement temporisé, tension nominale: 250~[V]",
-    "image_reponse": "Frage_230_Grafik_Lsg.png",
+    "image_reponse": "474_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.3",
     "Nb_Pts_Reponse": 3
   },
@@ -4421,9 +4421,9 @@
   {
     "id_question": 492,
     "question_text": "Dessinez les caractéristiques de déclenchement avec toutes les caractéristiques usuelles et les valeurs limites correspondantes d'un disjoncteur de canalisation.",
-    "image_question": "Frage_248_Grafik_Aufg.png",
+    "image_question": "492_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_248_Grafik_Lsg.png",
+    "image_reponse": "492_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.3",
     "Nb_Pts_Reponse": 3
   },
@@ -4475,27 +4475,27 @@
   {
     "id_question": 498,
     "question_text": "Calculez le courant de court-circuit correspondant.",
-    "image_question": "20220505-101050-z961.png",
+    "image_question": "498_20251217_154211_774553_Q.png",
     "reponse_text": "43.8~[A]",
-    "image_reponse": "20220505-101103-z602.png",
+    "image_reponse": "498_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.3",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 499,
     "question_text": "Calculez le courant de court-circuit correspondant.",
-    "image_question": "Frage_255_Grafik_Aufg.png",
+    "image_question": "499_20251217_154211_774553_Q.png",
     "reponse_text": "93.90~[A]",
-    "image_reponse": "Frage_255_Grafik_Lsg.png",
+    "image_reponse": "499_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.3",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 500,
     "question_text": "Calculez le courant de court-circuit correspondant.",
-    "image_question": "Frage_256_Grafik_Aufg.png",
+    "image_question": "500_20251217_154211_774553_Q.png",
     "reponse_text": "438.10~[A]",
-    "image_reponse": "Frage_256_Grafik_Lsg.png",
+    "image_reponse": "500_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.3",
     "Nb_Pts_Reponse": 3
   },
@@ -4529,27 +4529,27 @@
   {
     "id_question": 504,
     "question_text": "Quel courant doit traverser une cartouche fusible de 10~[A] afin qu'elle se déclenche dans un délai de 0.4~[s]~? Dessinez votre réponse dans le graphique.",
-    "image_question": "Frage_260_Grafik_Aufg.png",
+    "image_question": "504_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_260_Grafik_Lsg.png",
+    "image_reponse": "504_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.3",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 505,
     "question_text": "Combien de temps nécessite une cartouche fusible de 25~[A] avec un courant de 90~[A] jusqu'à ce qu'elle se déclenche~? Dessinez votre réponse dans le graphique.",
-    "image_question": "Frage_261_Grafik_Aufg.png",
+    "image_question": "505_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_261_Grafik_Lsg.png",
+    "image_reponse": "505_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.3",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 506,
     "question_text": "Quel courant doit traverser une cartouche fusible de 16~[A] afin qu'elle se déclenche dans un délai de 0.4~[s]~? Dessinez votre réponse dans le graphique.",
-    "image_question": "Frage_262_Grafik_Aufg.png",
+    "image_question": "506_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_262_Grafik_Lsg.png",
+    "image_reponse": "506_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.3",
     "Nb_Pts_Reponse": 3
   },
@@ -4637,9 +4637,9 @@
   {
     "id_question": 516,
     "question_text": "Qu'est-ce que l'on calcule avec la formule suivante~?",
-    "image_question": "Frage_272_Grafik_Aufg.png",
+    "image_question": "516_20251217_154211_774553_Q.png",
     "reponse_text": "Le temps maximum admissible jusqu'à ce que le circuit soit interrompu sans que les lignes raccordées ne soient endommagées",
-    "image_reponse": "Frage_272_Grafik_Lsg.png",
+    "image_reponse": "516_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.3",
     "Nb_Pts_Reponse": 3
   },
@@ -4655,27 +4655,27 @@
   {
     "id_question": 518,
     "question_text": "Citez les termes corrects pour 1, 2 et M.",
-    "image_question": "Frage_274_Grafik_Aufg.png",
+    "image_question": "518_20251217_154211_774553_Q.png",
     "reponse_text": "1 = Dispositifs de capture -2 = Descente -M = Écartement des mailles",
-    "image_reponse": "Frage_274_Grafik_Lsg.png",
+    "image_reponse": "518_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.4",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 519,
     "question_text": "Citez les termes corrects pour 1, 4 et A.",
-    "image_question": "Frage_275_Grafik_Aufg.png",
+    "image_question": "519_20251217_154211_774553_Q.png",
     "reponse_text": "1 = Dispositifs de capture -2 = Installation de mise à la terre -A = Écartement entre descentes",
-    "image_reponse": "Frage_275_Grafik_Lsg.png",
+    "image_reponse": "519_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.4",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 520,
     "question_text": "Citez les termes corrects pour 2, 3 et M.",
-    "image_question": "Frage_276_Grafik_Aufg.png",
+    "image_question": "520_20251217_154211_774553_Q.png",
     "reponse_text": "2 = Dispositifs de capture -3 = Point de réparation de mesures -M = Écartement des mailles",
-    "image_reponse": "Frage_276_Grafik_Lsg.png",
+    "image_reponse": "520_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.4",
     "Nb_Pts_Reponse": 3
   },
@@ -4799,9 +4799,9 @@
   {
     "id_question": 534,
     "question_text": "Dessinez pour cet hôtel (classe de protection contre la foudre II, maillage max. 10~[m] x 10~[m], écartement max. des descentes 10~[m]) la protection extérieure contre la foudre.",
-    "image_question": "Frage_290_Grafik_Aufg.png",
+    "image_question": "534_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_290_Grafik_Lsg.png",
+    "image_reponse": "534_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.4",
     "Nb_Pts_Reponse": 3
   },
@@ -4817,27 +4817,27 @@
   {
     "id_question": 536,
     "question_text": "Calculez la distance de séparation requise s, si A = 3,4~[m], k = 0.06, n = 8 pcs et n0 = 8 pcs.",
-    "image_question": "Frage_292_Grafik_Aufg.png",
+    "image_question": "536_20251217_154211_774553_Q.png",
     "reponse_text": "0.204~[m]",
-    "image_reponse": "Frage_292_Grafik_Lsg.png",
+    "image_reponse": "536_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.4",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 537,
     "question_text": "Calculez la distance de séparation requise s, si A = 2,7~[m], k = 0.06, n = 8 pcs et n0 = 8 pcs.",
-    "image_question": "Frage_293_Grafik_Aufg.png",
+    "image_question": "537_20251217_154211_774553_Q.png",
     "reponse_text": "0.162~[m]",
-    "image_reponse": "Frage_293_Grafik_Lsg.png",
+    "image_reponse": "537_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.4",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 538,
     "question_text": "Calculez la distance de séparation requise s, si A = 4,3~[m], k = 0.06, n = 8 pcs et n0 = 8 pcs.",
-    "image_question": "20230120-135130-z869.png",
+    "image_question": "538_20251217_154211_774553_Q.png",
     "reponse_text": "0.258~[m]",
-    "image_reponse": "20230120-135135-z662.png",
+    "image_reponse": "538_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.4",
     "Nb_Pts_Reponse": 3
   },
@@ -4880,9 +4880,9 @@
   {
     "id_question": 543,
     "question_text": "Quelle variante d'entrée de canalisations métalliques introduites dans l'immeuble faut-il choisir et pourquoi~?",
-    "image_question": "Frage_299_Grafik_Aufg.png",
+    "image_question": "543_20251217_154211_774553_Q.png",
     "reponse_text": "La variante B est la meilleure solution. Si un courant de foudre s'écoule dans une canalisation, il ne se répartira pas dans tout le bâtiment.",
-    "image_reponse": "Frage_299_Grafik_Lsg.png",
+    "image_reponse": "543_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.4",
     "Nb_Pts_Reponse": 3
   },
@@ -4916,18 +4916,18 @@
   {
     "id_question": 547,
     "question_text": "Dessinez dans l'installation représentée les dispositifs de protection contre les surtensions nécessaires (en indiquant le type) pour un concept de protection efficace contre les surtensions.",
-    "image_question": "Frage_303_Grafik_Aufg_fr.png",
+    "image_question": "547_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_303_Grafik_Lsg_fr.png",
+    "image_reponse": "547_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.4",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 548,
     "question_text": "L'image donnée montre l'ordre des systèmes de support. Énumérez la disposition conformément aux indications de la NIBT en commençant par le haut.",
-    "image_question": "Frage_304_Grafik_Aufg.png",
+    "image_question": "548_20251217_154211_774553_Q.png",
     "reponse_text": "-câbles et canalisations d'alimentation --circuits auxiliaires --câbles de technologie de l'information --circuits sensibles",
-    "image_reponse": "Frage_304_Grafik_Lsg.png",
+    "image_reponse": "548_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.4",
     "Nb_Pts_Reponse": 3
   },
@@ -5051,9 +5051,9 @@
   {
     "id_question": 562,
     "question_text": "La disposition donnée est-elle admissible~?",
-    "image_question": "Frage_318_Grafik_Aufg.png",
+    "image_question": "562_20251217_154211_774553_Q.png",
     "reponse_text": "Les conducteurs neutres doivent être disposés et identifiés par un marquage de telle façon que leur appartenance au circuit d'alimentation correspondant soit clairement identifiable",
-    "image_reponse": "Frage_318_Grafik_Lsg.png",
+    "image_reponse": "562_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.6",
     "Nb_Pts_Reponse": 3
   },
@@ -5213,9 +5213,9 @@
   {
     "id_question": 580,
     "question_text": "Cela est-il permis~?",
-    "image_question": "Frage_336_Grafik_Aufg_fr.png",
+    "image_question": "580_20251217_154211_774553_Q.png",
     "reponse_text": "Non. Il n'est pas permis d'utiliser des prises en tant que dispositifs de coupure d'urgence",
-    "image_reponse": "Frage_336_Grafik_Lsg_fr.png",
+    "image_reponse": "580_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.6",
     "Nb_Pts_Reponse": 3
   },
@@ -5285,9 +5285,9 @@
   {
     "id_question": 588,
     "question_text": "Quel est le courant assigné minimal que doit présenter l'interrupteur donné~?",
-    "image_question": "Frage_344_Grafik_Aufg.png",
+    "image_question": "588_20251217_154211_774553_Q.png",
     "reponse_text": "7,7~[A]",
-    "image_reponse": "Frage_344_Grafik_Lsg.png",
+    "image_reponse": "588_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N4.6",
     "Nb_Pts_Reponse": 3
   },
@@ -5303,27 +5303,27 @@
   {
     "id_question": 590,
     "question_text": "Complétez le graphique donné par les notions correspondantes.",
-    "image_question": "Frage_346_Grafik_Aufg_fr.png",
+    "image_question": "590_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_346_Grafik_Lsg_fr.png",
+    "image_reponse": "590_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 591,
     "question_text": "Complétez le graphique donné par les notions correspondantes.",
-    "image_question": "Frage_347_Grafik_Aufg_fr.png",
+    "image_question": "591_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_347_Grafik_Lsg_fr.png",
+    "image_reponse": "591_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 592,
     "question_text": "Complétez le graphique donné par les notions correspondantes.",
-    "image_question": "Frage_348_Grafik_Aufg_fr.png",
+    "image_question": "592_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_348_Grafik_Lsg_fr.png",
+    "image_reponse": "592_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
@@ -5357,108 +5357,108 @@
   {
     "id_question": 596,
     "question_text": "Quelle est la signification du symbole représenté sur un matériel électrique~?",
-    "image_question": "Frage_352_Grafik_Aufg.png",
+    "image_question": "596_20251217_154211_774553_Q.png",
     "reponse_text": "à l'épreuve des goutes d'eau",
-    "image_reponse": "Frage_352_Grafik_Lsg.png",
+    "image_reponse": "596_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 597,
     "question_text": "Quelle est la signification du symbole représenté sur un matériel électrique~?",
-    "image_question": "Frage_353_Grafik_Aufg.png",
+    "image_question": "597_20251217_154211_774553_Q.png",
     "reponse_text": "étanche à la pluie",
-    "image_reponse": "Frage_353_Grafik_Lsg.png",
+    "image_reponse": "597_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 598,
     "question_text": "Quelle est la signification du symbole représenté sur un matériel électrique~?",
-    "image_question": "Frage_354_Grafik_Aufg.png",
+    "image_question": "598_20251217_154211_774553_Q.png",
     "reponse_text": "à l'épreuve des éclaboussements d'eau",
-    "image_reponse": "Frage_354_Grafik_Lsg.png",
+    "image_reponse": "598_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 599,
     "question_text": "Quelle est la signification du symbole représenté sur un matériel électrique~?",
-    "image_question": "Frage_355_Grafik_Aufg.png",
+    "image_question": "599_20251217_154211_774553_Q.png",
     "reponse_text": "protégé contre les jets d'eau",
-    "image_reponse": "Frage_355_Grafik_Lsg.png",
+    "image_reponse": "599_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 600,
     "question_text": "Quelle est la signification du symbole représenté sur un matériel électrique~?",
-    "image_question": "Frage_356_Grafik_Aufg.png",
+    "image_question": "600_20251217_154211_774553_Q.png",
     "reponse_text": "étanche à l'eau",
-    "image_reponse": "Frage_356_Grafik_Lsg.png",
+    "image_reponse": "600_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 601,
     "question_text": "Quelle est la signification du symbole représenté sur un matériel électrique~?",
-    "image_question": "Frage_357_Grafik_Aufg.png",
+    "image_question": "601_20251217_154211_774553_Q.png",
     "reponse_text": "étanche à l'eau sous pression",
-    "image_reponse": "Frage_357_Grafik_Lsg.png",
+    "image_reponse": "601_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 602,
     "question_text": "Quelle est la signification du symbole représenté sur un matériel électrique~?",
-    "image_question": "Frage_358_Grafik_Aufg.png",
+    "image_question": "602_20251217_154211_774553_Q.png",
     "reponse_text": "protégé de la poussière",
-    "image_reponse": "Frage_358_Grafik_Lsg.png",
+    "image_reponse": "602_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 603,
     "question_text": "Quelle est la signification du symbole représenté sur un matériel électrique~?",
-    "image_question": "Frage_359_Grafik_Aufg.png",
+    "image_question": "603_20251217_154211_774553_Q.png",
     "reponse_text": "étanche à la poussière",
-    "image_reponse": "Frage_359_Grafik_Lsg.png",
+    "image_reponse": "603_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 604,
     "question_text": "Quelle est la signification du symbole représenté sur un matériel électrique~?",
-    "image_question": "Frage_360_Grafik_Aufg.png",
+    "image_question": "604_20251217_154211_774553_Q.png",
     "reponse_text": "résistant à la corrosion",
-    "image_reponse": "Frage_360_Grafik_Lsg.png",
+    "image_reponse": "604_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 605,
     "question_text": "Quelle est la signification du symbole représenté sur un matériel électrique~?",
-    "image_question": "Frage_361_Grafik_Aufg.png",
+    "image_question": "605_20251217_154211_774553_Q.png",
     "reponse_text": "pour atmosphères explosives",
-    "image_reponse": "Frage_361_Grafik_Lsg.png",
+    "image_reponse": "605_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 606,
     "question_text": "Quelle est la signification du symbole représenté sur un matériel électrique~?",
-    "image_question": "Frage_362_Grafik_Aufg.png",
+    "image_question": "606_20251217_154211_774553_Q.png",
     "reponse_text": "résistant à la chaleur",
-    "image_reponse": "Frage_362_Grafik_Lsg.png",
+    "image_reponse": "606_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 607,
     "question_text": "Quelle est la signification du symbole représenté sur un matériel électrique~?",
-    "image_question": "Frage_363_Grafik_Aufg.png",
+    "image_question": "607_20251217_154211_774553_Q.png",
     "reponse_text": "résistant au froid",
-    "image_reponse": "Frage_363_Grafik_Lsg.png",
+    "image_reponse": "607_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
@@ -5564,27 +5564,27 @@
   {
     "id_question": 619,
     "question_text": "Interpréter les dimensions a et b.",
-    "image_question": "Frage_376_Grafik_Aufg.png",
+    "image_question": "619_20251217_154211_774553_Q.png",
     "reponse_text": "L'ouverture libre des fenêtres borgnes, niches, portes ou autres doit présenter une taille minimale de sorte que les dispositifs de protection contre les surintensités ne soient ni totalement ni partiellement recouverts.",
-    "image_reponse": "Frage_376_Grafik_Lsg.png",
+    "image_reponse": "619_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 620,
     "question_text": "Complétez le graphique.",
-    "image_question": "Frage_377_Grafik_Aufg.png",
+    "image_question": "620_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_377_Grafik_Lsg.png",
+    "image_reponse": "620_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 621,
     "question_text": "Complétez le graphique.",
-    "image_question": "Frage_378_Grafik_Aufg.png",
+    "image_question": "621_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_378_Grafik_Lsg.png",
+    "image_reponse": "621_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1",
     "Nb_Pts_Reponse": 3
   },
@@ -5897,28 +5897,28 @@
   {
     "id_question": 656,
     "question_text": "Déterminez sur la base des informations données la section de conducteur à choisir.",
-    "image_question": "Frage_413_Grafik_Aufg_fr.png",
+    "image_question": "656_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_413_Grafik_Lsg_fr.png",
+    "image_reponse": "656_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.2",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 657,
     "question_text": "Déterminez sur la base des informations données la section de conducteur à choisir.",
-    "image_question": "Frage_414_Grafik_Aufg_fr.png",
+    "image_question": "657_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "Frage_414_Grafik_Lsg_fr.png",
+    "image_reponse": "657_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.2",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 658,
     "question_text": "Déterminez sur la base des informations données la section de conducteur à choisir.",
-    "image_question": "Frage_415_Grafik_Aufg_fr.png",
+    "image_question": "658_20251217_154211_774553_Q.png",
     "reponse_text": "4",
-    "image_reponse": "Frage_415_Grafik_Lsg_fr.png",
-    "Numero_Article_NIBT": "N5.2",
+    "image_reponse": "658_20251217_154211_774553_R.png",
+    "Numero_Article_NIBT": "5.2.3",
     "Nb_Pts_Reponse": 3
   },
   {
@@ -6320,9 +6320,9 @@
   {
     "id_question": 703,
     "question_text": "Quelle est la signification du sigle suivant sur un DDR et quelle est sa fonction~?",
-    "image_question": "20230203-144843-z464.png",
+    "image_question": "703_20251217_154211_774553_Q.png",
     "reponse_text": "Il s'agit d'un DDR dépendant de la tension. Il coupe dès que la tension est insuffisante ou dans le cas d'un sectionnement du conducteur neutre. Une fois la tension revenue, il ne se remet pas automatiquement en marche.",
-    "image_reponse": "20230203-144848-z528.png",
+    "image_reponse": "703_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.3\\_RCD",
     "Nb_Pts_Reponse": 3
   },
@@ -6356,27 +6356,27 @@
   {
     "id_question": 707,
     "question_text": "Dimensionnez le DDR.",
-    "image_question": "20230203-145041-z388.png",
+    "image_question": "707_20251217_154211_774553_Q.png",
     "reponse_text": "IN DDR = 40~[A]",
-    "image_reponse": "20230203-145047-z666.png",
+    "image_reponse": "707_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.3\\_RCD",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 708,
     "question_text": "Dimensionnez le DDR.",
-    "image_question": "20230203-145257-z307.png",
+    "image_question": "708_20251217_154211_774553_Q.png",
     "reponse_text": "IN DDR = 63~[A]",
-    "image_reponse": "20230203-145301-z284.png",
+    "image_reponse": "708_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.3\\_RCD",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 709,
     "question_text": "Dimensionnez le DDR.",
-    "image_question": "20230203-145353-z912.png",
+    "image_question": "709_20251217_154211_774553_Q.png",
     "reponse_text": "IN DDR = 40~[A]",
-    "image_reponse": "20230203-145357-z250.png",
+    "image_reponse": "709_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.3\\_RCD",
     "Nb_Pts_Reponse": 3
   },
@@ -6617,18 +6617,18 @@
   {
     "id_question": 736,
     "question_text": "Définissez l'intensité du courant assigné d'un ensemble d'appareillages. Le facteur de simultanéité est 0.7.",
-    "image_question": "20230203-150230-z589.png",
+    "image_question": "736_20251217_154211_774553_Q.png",
     "reponse_text": "InA = 90~[A] x 0.7 = 63~[A]",
-    "image_reponse": "20230203-150235-z597.png",
+    "image_reponse": "736_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "SNR 461439",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 737,
     "question_text": "Définissez l'intensité du courant assigné et la section du conducteur (PVC, 40°C) entre A et B de l'ensemble d'appareillages.",
-    "image_question": "20230203-150343-z315.png",
+    "image_question": "737_20251217_154211_774553_Q.png",
     "reponse_text": "InA = 50~[A] -A = 16~[mm²]",
-    "image_reponse": "20230203-150348-z618.png",
+    "image_reponse": "737_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "SNR 461439",
     "Nb_Pts_Reponse": 3
   },
@@ -6779,18 +6779,18 @@
   {
     "id_question": 754,
     "question_text": "De quel système de connexion s'agit-il dans le schéma de prises donné~? Pour quelle tension assignée et pour quel courant assigné sont-elles construites~?",
-    "image_question": "20230213-103907-z219.png",
+    "image_question": "754_20251217_154211_774553_Q.png",
     "reponse_text": "Type 12, 250~[V], 10~[A]",
-    "image_reponse": "20230213-103907-z219.png",
+    "image_reponse": "754_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.3\\_SV",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 755,
     "question_text": "De quel système de connexion s'agit-il dans le schéma de prises donné~? Pour quelle tension assignée et pour quel courant assigné sont-elles construites~?",
-    "image_question": "20230213-104154-z827.png",
+    "image_question": "755_20251217_154211_774553_Q.png",
     "reponse_text": "Type 13, 250~[V], 10~[A]",
-    "image_reponse": "20230213-104159-z459.png",
+    "image_reponse": "755_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.1.1.2\\N5.3\\_SV",
     "Nb_Pts_Reponse": 3
   },
@@ -6806,63 +6806,63 @@
   {
     "id_question": 757,
     "question_text": "De quel système de connexion s'agit-il dans le schéma de prises donné~? Pour quelle tension assignée et pour quel courant assigné sont-elles construites~?",
-    "image_question": "20230213-150820-z742.png",
+    "image_question": "757_20251217_154211_774553_Q.png",
     "reponse_text": "Type 23, 250~[V], 16~[A]",
-    "image_reponse": "20230213-150826-z526.png",
+    "image_reponse": "757_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.3\\_SV",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 758,
     "question_text": "De quel système de connexion s'agit-il dans le schéma de prises donné~? Pour quelle tension assignée et pour quel courant assigné sont-elles construites~?",
-    "image_question": "20230213-151013-z424.png",
+    "image_question": "758_20251217_154211_774553_Q.png",
     "reponse_text": "Type 25, 250~[V]/400~[V], 16~[A]",
-    "image_reponse": "20230213-151018-z622.png",
+    "image_reponse": "758_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.3\\_SV",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 759,
     "question_text": "Citez deux types présentant le courant assigné associé qui correspondent au schéma de prises donné.",
-    "image_question": "20230213-151138-z833.png",
+    "image_question": "759_20251217_154211_774553_Q.png",
     "reponse_text": "-Type 63, 16~[A] --Type 64, 32~[A] --Type 65, 63~[A]",
-    "image_reponse": "20230213-151138-z833.png",
+    "image_reponse": "759_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.3\\_SV",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 760,
     "question_text": "Citez deux types présentant le courant assigné associé qui correspondent au schéma de prises donné.",
-    "image_question": "20230213-151405-z933.png",
+    "image_question": "760_20251217_154211_774553_Q.png",
     "reponse_text": "-Type 75, 16~[A] --Type 76, 32~[A] --Type 77, 63~[A] --Type 78, 125~[A]",
-    "image_reponse": "20230213-151410-z334.png",
+    "image_reponse": "760_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.3\\_SV",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 761,
     "question_text": "De quel système de connexion s'agit-il dans les prises données en ce qui concerne leur usage (terme générique)~?",
-    "image_question": "20230213-151525-z594.png",
+    "image_question": "761_20251217_154211_774553_Q.png",
     "reponse_text": "Prises domestiques",
-    "image_reponse": "20230213-151532-z347.png",
+    "image_reponse": "761_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.3\\_SV",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 762,
     "question_text": "De quel système de connexion s'agit-il dans les prises données en ce qui concerne leur usage (terme générique)~?",
-    "image_question": "20230213-151729-z456.png",
+    "image_question": "762_20251217_154211_774553_Q.png",
     "reponse_text": "Prises industrielles",
-    "image_reponse": "20230213-151742-z491.png",
+    "image_reponse": "762_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.3\\_SV",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 763,
     "question_text": "Complétez les deux schémas de prises par les désignations de conducteurs correctes.",
-    "image_question": "20230213-152210-z252.png",
+    "image_question": "763_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "20230213-152216-z767.png",
+    "image_reponse": "763_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.3\\_SV",
     "Nb_Pts_Reponse": 3
   },
@@ -7283,216 +7283,216 @@
   {
     "id_question": 810,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-102327-z246.png",
+    "image_question": "810_20251217_154211_774553_Q.png",
     "reponse_text": "Transformateur de sécurité à protection conditionnelle ou inconditionnelle contre les courts-circuits",
-    "image_reponse": "20230215-102332-z678.png",
+    "image_reponse": "810_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 811,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-102422-z110.png",
+    "image_question": "811_20251217_154211_774553_Q.png",
     "reponse_text": "Starto-stabilisateur (transformateur) indépendant assurant la protection de base pour le montage extérieur au luminaire",
-    "image_reponse": "20230215-102427-z226.png",
+    "image_reponse": "811_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 812,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-113436-z503.png",
+    "image_question": "812_20251217_154211_774553_Q.png",
     "reponse_text": "Appareillage de lampe/transformateur thermiquement protégé",
-    "image_reponse": "20230215-113443-z666.png",
+    "image_reponse": "812_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 813,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-113530-z754.png",
+    "image_question": "813_20251217_154211_774553_Q.png",
     "reponse_text": "Starto-stabilisateur indépendant indiqué pour le montage direct sur des surfaces normalement combustibles",
-    "image_reponse": "20230215-113536-z343.png",
+    "image_reponse": "813_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 814,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-113630-z115.png",
+    "image_question": "814_20251217_154211_774553_Q.png",
     "reponse_text": "Luminaires à température de surface limitée (pour températures comprises entre 115 et 150~[°C]) indiqués pour des locaux contenant des poussières combustibles",
-    "image_reponse": "20230215-113636-z343.png",
+    "image_reponse": "814_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 815,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-113730-z860.png",
+    "image_question": "815_20251217_154211_774553_Q.png",
     "reponse_text": "Luminaires indiqués pour le montage dans ou sur des meubles en matériaux combustibles (service normal jusqu'à 90°C, en cas de défaut jusqu'à 130°C)",
-    "image_reponse": "20230215-113737-z777.png",
+    "image_reponse": "815_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 816,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-113826-z809.png",
+    "image_question": "816_20251217_154211_774553_Q.png",
     "reponse_text": "Luminaires indiqués pour le montage sur des matériaux avec comportement au feu inconnu (service normal jusqu'à 95°C, en cas de défaut jusqu'à 115°C)",
-    "image_reponse": "20230215-113833-z399.png",
+    "image_reponse": "816_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 817,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-113929-z642.png",
+    "image_question": "817_20251217_154211_774553_Q.png",
     "reponse_text": "Luminaires pour lampes halogènes à incandescence «self-shielded» uniquement (avec une protection de verre devant la lampe)",
-    "image_reponse": "20230215-113936-z451.png",
+    "image_reponse": "817_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 818,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-114449-z620.png",
+    "image_question": "818_20251217_154211_774553_Q.png",
     "reponse_text": "Luminaires conçus pour lampes à calotte argentée (sommet miroité)",
-    "image_reponse": "20230215-114457-z772.png",
+    "image_reponse": "818_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 819,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-114735-z408.png",
+    "image_question": "819_20251217_154211_774553_Q.png",
     "reponse_text": "Température ambiante assignée maximale",
-    "image_reponse": "20230215-114742-z103.png",
+    "image_reponse": "819_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 820,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-114832-z727.png",
+    "image_question": "820_20251217_154211_774553_Q.png",
     "reponse_text": "Mise en garde contre l'utilisation de luminaires « cool beam »",
-    "image_reponse": "20230215-114838-z336.png",
+    "image_reponse": "820_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 821,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-114943-z102.png",
+    "image_question": "821_20251217_154211_774553_Q.png",
     "reponse_text": "Distance minimale vers des surfaces illuminées",
-    "image_reponse": "20230215-114950-z867.png",
+    "image_reponse": "821_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 822,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-115223-z565.png",
+    "image_question": "822_20251217_154211_774553_Q.png",
     "reponse_text": "Luminaires pour environnement rigoureux",
-    "image_reponse": "20230215-115229-z949.png",
+    "image_reponse": "822_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 823,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-115639-z199.png",
+    "image_question": "823_20251217_154211_774553_Q.png",
     "reponse_text": "Luminaires prévus pour les lampes à vapeur de sodium à haute pression nécessitant un allumeur situé à l'extérieur (du luminaire)",
-    "image_reponse": "20230215-115645-z879.png",
+    "image_reponse": "823_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 824,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-115823-z738.png",
+    "image_question": "824_20251217_154211_774553_Q.png",
     "reponse_text": "Luminaires prévus pour les lampes à vapeur de sodium à haute pression nécessitant un allumeur intégré",
-    "image_reponse": "20230215-115829-z700.png",
+    "image_reponse": "824_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 825,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-115931-z398.png",
+    "image_question": "825_20251217_154211_774553_Q.png",
     "reponse_text": "Utilisation de lignes d'amenée, de conduites de raccordement ou de lignes extérieures résistantes à la chaleur",
-    "image_reponse": "20230215-115938-z552.png",
+    "image_reponse": "825_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 826,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-120033-z345.png",
+    "image_question": "826_20251217_154211_774553_Q.png",
     "reponse_text": "Tout cache de protection fêlé doit être remplacé (rectangulaire ou rond)",
-    "image_reponse": "20230215-120042-z771.png",
+    "image_reponse": "826_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 827,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-120135-z455.png",
+    "image_question": "827_20251217_154211_774553_Q.png",
     "reponse_text": "Ancien marquage, luminaire indiqué pour être monté sur des surfaces normalement combustibles",
-    "image_reponse": "20230215-120143-z144.png",
+    "image_reponse": "827_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 828,
     "question_text": "Quelle est la signification du marquage représenté~?",
-    "image_question": "20230215-120216-z620.png",
+    "image_question": "828_20251217_154211_774553_Q.png",
     "reponse_text": "Ancien marquage, luminaire inapproprié pour être monté sur des surfaces normalement combustibles",
-    "image_reponse": "20230215-120224-z778.png",
+    "image_reponse": "828_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 829,
     "question_text": "Quelle est la signification du symbole donné~?",
-    "image_question": "20230215-120327-z963.png",
+    "image_question": "829_20251217_154211_774553_Q.png",
     "reponse_text": "Luminaire apparent qui ne doit pas être monté directement sur des surfaces normalement inflammables.",
-    "image_reponse": "20230215-120334-z978.png",
+    "image_reponse": "829_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 830,
     "question_text": "Quelle est la signification du symbole donné~?",
-    "image_question": "20230215-131205-z727.png",
+    "image_question": "830_20251217_154211_774553_Q.png",
     "reponse_text": "Luminaire à encastrer qui ne doit pas être monté directement sur des surfaces normalement inflammables.",
-    "image_reponse": "20230215-131212-z533.png",
+    "image_reponse": "830_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.5",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 831,
     "question_text": "Complétez le schéma donné.",
-    "image_question": "20230215-131418-z581.png",
+    "image_question": "831_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "20230215-131448-z445.png",
+    "image_reponse": "831_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.6",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 832,
     "question_text": "De quoi s'agit-il dans l'illustration donnée~?",
-    "image_question": "20230215-131640-z376.png",
+    "image_question": "832_20251217_154211_774553_Q.png",
     "reponse_text": "Relais d'enclenchement à tension nulle",
-    "image_reponse": "20230215-131647-z306.png",
+    "image_reponse": "832_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.6",
     "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 833,
     "question_text": "De quoi s'agit-il dans l'illustration donnée~?",
-    "image_question": "20230215-132901-z917.png",
+    "image_question": "833_20251217_154211_774553_Q.png",
     "reponse_text": "Luminaire d'éclairage de secours",
-    "image_reponse": "20230215-132909-z421.png",
+    "image_reponse": "833_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N5.6",
     "Nb_Pts_Reponse": 3
   },
@@ -8165,9 +8165,9 @@
   {
     "id_question": 908,
     "question_text": "Veuillez indiquer les désignations de zones manquantes et les masses sur le schéma de salles de bain et de douche dans des habitations.",
-    "image_question": "20230215-144830-z505.png",
+    "image_question": "908_20251217_154211_774553_Q.png",
     "reponse_text": "None",
-    "image_reponse": "20230215-144837-z815.png",
+    "image_reponse": "908_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N7",
     "Nb_Pts_Reponse": 3
   },
@@ -8408,9 +8408,9 @@
   {
     "id_question": 935,
     "question_text": "Désignez les éléments numérotés dans le graphique.",
-    "image_question": "Frage_680_Grafik_Aufg.png",
+    "image_question": "935_20251217_154211_774553_Q.png",
     "reponse_text": "1. Panneaux solaires, générateurs solaires -2. Boîtier de raccordement de générateur -3. Liaison équipotentielle au générateur solaire -5. Canalisation principale à courant continu PV -13. Onduleur -14. Barre principale de mise à la terre -15. Électrode de terre",
-    "image_reponse": "Frage_680_Grafik_Lsg.png",
+    "image_reponse": "935_20251217_154211_774553_R.png",
     "Numero_Article_NIBT": "N7",
     "Nb_Pts_Reponse": 3
   },
