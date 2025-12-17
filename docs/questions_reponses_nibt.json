@@ -10,21 +10,21 @@
   },
   {
     "id_question": 2,
-    "question_text": "A quel type d'installation s'applique la NIBT ?",
-    "image_question": null,
-    "reponse_text": "La NIBT est en premier lieu applicable aux installations électriques domestiques. Il s’agit dans ce cadre majoritairement des installations électriques dans lesbâtiments de tous types, mais également d’autres installations - par exemple à l’extérieur - qui sont exploitées à basse tension ne dépassant pas 300 V par rapport à la terre.",
-    "image_reponse": null,
-    "Numero_Article_NIBT": "F1.1.6",
-    "Nb_Pts_Reponse": 1
-  },
-  {
-    "id_question": 2,
-    "question_text": "A quel type d'installation s'applique la NIBT ?",
+    "question_text": "Quels types de bâtiments ou d’installations sont couverts par le domaine de validité de la NIBT ?",
     "image_question": null,
     "reponse_text": "bâtiments à usage d’habitation, bâtiments à usage commercial, bâtiments du public, bâtiments industriels, établissements agricoles et horticoles, bâtiments préfabriqués, locaux, emplacements et installations spéciales,  installations temporaires et provisoires, marinas (portuaires), installations d’éclairage extérieur et assimilables, locaux à usages médicaux, installations électriques mobiles ou transportables, installations photovoltaïques, installations de production de courant basse tension.",
     "image_reponse": null,
     "Numero_Article_NIBT": "1.1.1.1",
-    "Nb_Pts_Reponse": 1
+    "Nb_Pts_Reponse": 3
+  },
+  {
+    "id_question": 3,
+    "question_text": "Quels types d’installations électriques spécifiques sont mentionnés dans le domaine de validité de la NIBT, en dehors des bâtiments ?",
+    "image_question": null,
+    "reponse_text": "En dehors des bâtiments, la NIBT couvre :\n\nInstallations temporaires et provisoires\nInstallations d’éclairage extérieur et autres installations semblables\nInstallations électriques mobiles et transportables\nInstallations photovoltaïques\nInstallations de production de courant à basse tension",
+    "image_reponse": null,
+    "Numero_Article_NIBT": "1.1.1.1",
+    "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 4,
@@ -91,47 +91,11 @@
   },
   {
     "id_question": 11,
-    "question_text": "Pourquoi faut-il diviser les installations",
+    "question_text": "Pourquoi faut-il diviser les installations en plusieurs circuits ?",
     "image_question": null,
     "reponse_text": "Limiter les conséquences d'un défaut , faciliter les essais et contrôles. (mesure d'isolement)",
     "image_reponse": null,
     "Numero_Article_NIBT": "3.1.4.1",
-    "Nb_Pts_Reponse": 1
-  },
-  {
-    "id_question": 11,
-    "question_text": "Pourquoi faut-il diviser les installations",
-    "image_question": null,
-    "reponse_text": "Des circuits particuliers doivent être prévus pour les parties d’installations qui doivent être exploitées séparément de manière que ces circuits ne soient pas génés par la défaillance d’autres circuits. Ceci s’applique notamment aux circuits qui sont indispensables au fonctionnement d’une installation, par exemple des coupe-surintensité pour installations d’alarme, installations de détection d’incendie, ordinateurs, etc.",
-    "image_reponse": null,
-    "Numero_Article_NIBT": "3.1.4.2",
-    "Nb_Pts_Reponse": 2
-  },
-  {
-    "id_question": 13,
-    "question_text": "Comment doit être exécutée une installation ?",
-    "image_question": null,
-    "reponse_text": "Les installations doivent être réalisées selon le genre du local",
-    "image_reponse": null,
-    "Numero_Article_NIBT": "F2.7.1",
-    "Nb_Pts_Reponse": 3
-  },
-  {
-    "id_question": 13,
-    "question_text": "Comment doit être exécutée une installation ?",
-    "image_question": null,
-    "reponse_text": "Toute installation doit être exécutée en fonction de la nature du local où elle est située.",
-    "image_reponse": null,
-    "Numero_Article_NIBT": "5.1.A.1.1",
-    "Nb_Pts_Reponse": 3
-  },
-  {
-    "id_question": 13,
-    "question_text": "Comment doit être exécutée une installation ?",
-    "image_question": null,
-    "reponse_text": "Lors de la conception des installations électriques, les points suivants doivent être pris en compte: la protection des personnes, des animaux et des biens. Le fonctionnement correct de l’installation électrique en fonction de l’utilisation prévue.",
-    "image_reponse": null,
-    "Numero_Article_NIBT": "1.3.2.1.1",
     "Nb_Pts_Reponse": 3
   },
   {
@@ -471,28 +435,19 @@
     "id_question": 53,
     "question_text": "Où un sectionneur de neutre doit-il être inséré dans le conducteur neutre ?",
     "image_question": null,
-    "reponse_text": "Coupe-surintensité général,  principal, d'abonné",
+    "reponse_text": "Coupe-surintensité général; Au coupe-surintensité d'abonné; Dans le système TN-C-S, à l'endroit où le conducteur PEN est divisé en conducteur neutre et conducteur de protection.",
     "image_reponse": null,
-    "Numero_Article_NIBT": "4.6.2.1.3",
-    "Nb_Pts_Reponse": 5
-  },
-  {
-    "id_question": 53,
-    "question_text": "Où un sectionneur de neutre doit-il être inséré dans le conducteur neutre ?",
-    "image_question": null,
-    "reponse_text": "Un sectionneur de neutre ou une borne spéciale est admis pour les autres points de sectionnement:",
-    "image_reponse": null,
-    "Numero_Article_NIBT": "4.6.2.1.4",
-    "Nb_Pts_Reponse": 5
+    "Numero_Article_NIBT": "4.6.2.2.2",
+    "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 55,
     "question_text": "Dans quels schémas un sectionneur de neutre doit être inséré au point de transition ?",
     "image_question": null,
-    "reponse_text": "Au point de transition entre les schémas TN-C et TN-S. (HELP)",
+    "reponse_text": "Au point de transition entre les schémas TN-C et TN-S",
     "image_reponse": null,
     "Numero_Article_NIBT": "4.6.2.1.4",
-    "Nb_Pts_Reponse": 5
+    "Nb_Pts_Reponse": 3
   },
   {
     "id_question": 56,
@@ -895,15 +850,6 @@
     "question_text": "Comment est-il autorisé de sectionner le conducteur PE ?",
     "image_question": null,
     "reponse_text": "Le conducteur de protection ne doit pouvoir être sectionné que sur des bornes protégées contre le desserrage.",
-    "image_reponse": null,
-    "Numero_Article_NIBT": "4.6.1.2.2.1",
-    "Nb_Pts_Reponse": 5
-  },
-  {
-    "id_question": 100,
-    "question_text": "Comment est-il autorisé de sectionner le conducteur PE ?",
-    "image_question": null,
-    "reponse_text": "Le conducteur de protection ne doit pouvoir être sectionné ou déclenché, si ce n'est au moyen de dispositifs conjoncteurs.",
     "image_reponse": null,
     "Numero_Article_NIBT": "4.6.1.2.2.1",
     "Nb_Pts_Reponse": 5
@@ -1980,15 +1926,6 @@
     "Nb_Pts_Reponse": 2
   },
   {
-    "id_question": 221,
-    "question_text": "Qu'est-ce que la TBTS ?",
-    "image_question": null,
-    "reponse_text": "la limitation au domaine de tension I, <= 50 V AC ou <= 120 V DC",
-    "image_reponse": null,
-    "Numero_Article_NIBT": "4.1.4.1.1",
-    "Nb_Pts_Reponse": 3
-  },
-  {
     "id_question": 222,
     "question_text": "Comment brancher plusieurs récepteurs à un seul transformateur de séparation ?",
     "image_question": null,
@@ -2004,15 +1941,6 @@
     "reponse_text": "Les conduites en métal véhiculant de l’eau, des liquides ou des gaz combustibles ne peuvent pas être utilisées comme prise de terre. Cette disposition ne s’applique pas à l’intégration de ces conduites dans la liaison équipotentielle.",
     "image_reponse": null,
     "Numero_Article_NIBT": "5.4.2.2.6",
-    "Nb_Pts_Reponse": 3
-  },
-  {
-    "id_question": 223,
-    "question_text": "Un tuyau de gaz peut-il servir de conducteur de terre ?",
-    "image_question": null,
-    "reponse_text": "Les parties métalliques suivantes ne peuvent pas être utilisées\r\ncomme conducteur de protection ou comme liaison\r\néquipotentielle de protection:\r\n– les tuyaux contenant des gaz ou des liquides combustibles;\r\n– les parties de construction qui sont soumises à des\r\ncontraintes mécaniques en service normal;\r\n– les conduits d’installations électriques flexibles ou amovibles\r\nen métal, à moins qu’ils ne soient prévus à cet\r\neffet;\r\n– les parties métalliques flexibles;\r\n– les fils de fer tendus ou les câbles porteurs;\r\n– les chemins de câbles et les échelles à câbles (ceux-ci\r\ndoivent être intégrés dans la liaison équipotentielle de\r\nprotection).",
-    "image_reponse": null,
-    "Numero_Article_NIBT": "5.4.3.2.3",
     "Nb_Pts_Reponse": 3
   },
   {
@@ -2103,24 +2031,6 @@
     "reponse_text": "Surintensité se produisant dans un circuit électrique, qui n'est pas due à un court-circuit ou à un défaut à la terre.",
     "image_reponse": null,
     "Numero_Article_NIBT": "2.1.11.15",
-    "Nb_Pts_Reponse": 3
-  },
-  {
-    "id_question": 233,
-    "question_text": "Quelles sont les 2 types de surintensité dans une installation électrique (donnez des exemples) ?",
-    "image_question": null,
-    "reponse_text": "– des surintensités (surcharges, courts-circuits)",
-    "image_reponse": null,
-    "Numero_Article_NIBT": "1.3.2.8.1",
-    "Nb_Pts_Reponse": 3
-  },
-  {
-    "id_question": 233,
-    "question_text": "Quelles sont les 2 types de surintensité dans une installation électrique (donnez des exemples) ?",
-    "image_question": null,
-    "reponse_text": "Dispositifs de protection contre les surintensités et court-circuits. Ces dispositifs de protection doivent pouvoir interrompre toute surintensité jusqu’au courant de court-circuit présumé au point où le dispositif est installé.",
-    "image_reponse": null,
-    "Numero_Article_NIBT": "4.3.2.1",
     "Nb_Pts_Reponse": 3
   },
   {
@@ -9168,6 +9078,51 @@
     "reponse_text": "LIE",
     "image_reponse": null,
     "Numero_Article_NIBT": "OIBT / OMBT",
+    "Nb_Pts_Reponse": 3
+  },
+  {
+    "id_question": 1021,
+    "question_text": "Quelles sont les 2 types de surintensités dans une installation électrique (donnez des exemples) ?",
+    "image_question": null,
+    "reponse_text": "Surcharges : trop de récepteurs branchés, courts-circuits : une liaison conductrice accidentelle entre phase et neutre)",
+    "image_reponse": null,
+    "Numero_Article_NIBT": "1.3.2.8.1",
+    "Nb_Pts_Reponse": 3
+  },
+  {
+    "id_question": 1022,
+    "question_text": "Quelles sont les 2 types de surintensité dans une installation électrique (donnez des exemples) ?",
+    "image_question": null,
+    "reponse_text": "Dispositifs de protection contre les surintensités et court-circuits. Ces dispositifs de protection doivent pouvoir interrompre toute surintensité jusqu’au courant de court-circuit présumé au point où le dispositif est installé.",
+    "image_reponse": null,
+    "Numero_Article_NIBT": "4.3.2.1",
+    "Nb_Pts_Reponse": 3
+  },
+  {
+    "id_question": 1023,
+    "question_text": "Un tuyau de gaz peut-il servir de conducteur de terre ?",
+    "image_question": null,
+    "reponse_text": "Les parties métalliques suivantes ne peuvent pas être utilisées\r\ncomme conducteur de protection ou comme liaison\r\néquipotentielle de protection:\r\n– les tuyaux contenant des gaz ou des liquides combustibles;\r\n– les parties de construction qui sont soumises à des\r\ncontraintes mécaniques en service normal;\r\n– les conduits d’installations électriques flexibles ou amovibles\r\nen métal, à moins qu’ils ne soient prévus à cet\r\neffet;\r\n– les parties métalliques flexibles;\r\n– les fils de fer tendus ou les câbles porteurs;\r\n– les chemins de câbles et les échelles à câbles (ceux-ci\r\ndoivent être intégrés dans la liaison équipotentielle de\r\nprotection).",
+    "image_reponse": null,
+    "Numero_Article_NIBT": "5.4.3.2.3",
+    "Nb_Pts_Reponse": 3
+  },
+  {
+    "id_question": 1024,
+    "question_text": "Qu'est-ce que la TBTS ?",
+    "image_question": null,
+    "reponse_text": "la limitation au domaine de tension I, <= 50 V AC ou <= 120 V DC",
+    "image_reponse": null,
+    "Numero_Article_NIBT": "4.1.4.1.1",
+    "Nb_Pts_Reponse": 3
+  },
+  {
+    "id_question": 1025,
+    "question_text": "Comment est-il autorisé de sectionner le conducteur PE ?",
+    "image_question": null,
+    "reponse_text": "Le conducteur de protection ne doit pouvoir être sectionné ou déclenché, si ce n'est au moyen de dispositifs conjoncteurs.",
+    "image_reponse": null,
+    "Numero_Article_NIBT": "4.6.1.2.2.1",
     "Nb_Pts_Reponse": 3
   }
 ]
